@@ -1,0 +1,8 @@
+.jumbotron {
+	padding-top: 2rem;
+}
+
+button {
+	display: inline-block;
+	width: 20%;
+}

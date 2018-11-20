@@ -1,0 +1,24 @@
+.table {
+	background-color: #fff;
+	text-align: center;
+}
+
+.dropdown {
+	display: inline;
+}
+.this-week{
+	display: inline-block;
+}
+.this-week p{
+	display: inline-block;
+	size: 1.5em;
+}
+
+.jumbotron {
+	padding-top: 2rem;
+}
+
+tr .text-left {
+	text-align: left;
+
+}
