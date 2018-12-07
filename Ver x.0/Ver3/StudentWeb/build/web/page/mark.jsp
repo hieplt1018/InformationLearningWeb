@@ -24,13 +24,16 @@
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
         <link type="text/css" rel="stylesheet" href="css/mark.css"/>
         <!-- Custom Js -->
-        <script src="js/jquery.min.js"></script>;
-        <script src="js/diem.js"></script>
+        <script src="js/diem.js"></script>;
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
         <jsp:include page="banner.jsp"></jsp:include>
         <jsp:include page="contentMark.jsp"></jsp:include>
         <jsp:include page="footer.jsp"></jsp:include>
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

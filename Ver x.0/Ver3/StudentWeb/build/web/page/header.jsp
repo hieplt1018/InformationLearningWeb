@@ -49,7 +49,7 @@
                                     $('.login').remove();
                                 });
                             </script>
-                            <span>Welcome <%=student.getFirstName()%> <%=student.getLastName()%></span>
+                            <span>Welcome <%=student.getLastName()%> <%=student.getFirstName()%></span>
                             <% } else { %>
                                 <button class="primary-button login" id="primary-button"  onclick="location.href = 'login.jsp';" > Đăng Nhập</button>
                             <% } %>
@@ -71,11 +71,11 @@
                     <!-- nav -->
                     <div class="section-row">
                         <ul class="nav-aside-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="#">Join Us</a></li>
-                            <li><a href="#">Advertisement</a></li>
-                            <li><a href="contact.html">Contacts</a></li>
+                            <li><a href="./index.jsp">Trang chủ</a></li>
+                            <li><a href="#">Tin tức</a></li>
+                            <li><a href="#">Thời khóa biểu</a></li>
+                            <li><a href="mark.jsp">Điểm</a></li>
+                            <li><a href="#">Lịch thi</a></li>
                         </ul>
                     </div>
                     <!-- /nav -->

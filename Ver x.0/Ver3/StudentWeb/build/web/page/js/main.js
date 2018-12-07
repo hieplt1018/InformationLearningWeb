@@ -17,11 +17,11 @@
 
 	// Search Nav
 	$('.search-btn').on('click', function () {
-		$('.search-form').addClass('active');
+		$('.search-form').addClass("active");
 	});
 
 	$('.search-close').on('click', function () {
-		$('.search-form').removeClass('active');
+		$('.search-form').removeClass("active");
 	});
 
 	// Aside Nav
