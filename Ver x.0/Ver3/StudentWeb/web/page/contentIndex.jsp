@@ -21,7 +21,7 @@
                     <!-- post -->
                     <div class="col-md-6">
                         <div class="post post-thumb">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-1.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -36,7 +36,7 @@
                     <!-- post -->
                     <div class="col-md-6">
                         <div class="post post-thumb">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-2.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-3" href="category.html">Jquery</a>
@@ -61,7 +61,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-3.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-3.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-1" href="category.html">Web Design</a>
@@ -76,7 +76,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-4.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -91,7 +91,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-5.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-5.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-3" href="category.html">Jquery</a>
@@ -108,7 +108,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-6.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-6.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -123,7 +123,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-1.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-4" href="category.html">Css</a>
@@ -138,7 +138,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-2.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-1" href="category.html">Web Design</a>
@@ -159,7 +159,7 @@
                             <!-- post -->
                             <div class="col-md-12">
                                 <div class="post post-thumb">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-2.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-3" href="category.html">Jquery</a>
@@ -174,7 +174,7 @@
                             <!-- post -->
                             <div class="col-md-6">
                                 <div class="post">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-1.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-4" href="category.html">Css</a>
@@ -189,7 +189,7 @@
                             <!-- post -->
                             <div class="col-md-6">
                                 <div class="post">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-2.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-1" href="category.html">Web Design</a>
@@ -206,7 +206,7 @@
                             <!-- post -->
                             <div class="col-md-6">
                                 <div class="post">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-4.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -221,7 +221,7 @@
                             <!-- post -->
                             <div class="col-md-6">
                                 <div class="post">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-5.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-5.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-3" href="category.html">Jquery</a>
@@ -238,7 +238,7 @@
                             <!-- post -->
                             <div class="col-md-6">
                                 <div class="post">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-3.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-3.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-1" href="category.html">Web Design</a>
@@ -253,7 +253,7 @@
                             <!-- post -->
                             <div class="col-md-6">
                                 <div class="post">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-4.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -275,28 +275,28 @@
                             </div>
 
                             <div class="post post-widget">
-                                <a class="post-img" href="blog-post.html"><img src="./img/widget-1.jpg" alt=""></a>
+                                <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/widget-1.jpg" alt=""></a>
                                 <div class="post-body">
                                     <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
                                 </div>
                             </div>
 
                             <div class="post post-widget">
-                                <a class="post-img" href="blog-post.html"><img src="./img/widget-2.jpg" alt=""></a>
+                                <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/widget-2.jpg" alt=""></a>
                                 <div class="post-body">
                                     <h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
                                 </div>
                             </div>
 
                             <div class="post post-widget">
-                                <a class="post-img" href="blog-post.html"><img src="./img/widget-3.jpg" alt=""></a>
+                                <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/widget-3.jpg" alt=""></a>
                                 <div class="post-body">
                                     <h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
                                 </div>
                             </div>
 
                             <div class="post post-widget">
-                                <a class="post-img" href="blog-post.html"><img src="./img/widget-4.jpg" alt=""></a>
+                                <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/widget-4.jpg" alt=""></a>
                                 <div class="post-body">
                                     <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
                                 </div>
@@ -310,7 +310,7 @@
                                 <h2>Featured Posts</h2>
                             </div>
                             <div class="post post-thumb">
-                                <a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
+                                <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-2.jpg" alt=""></a>
                                 <div class="post-body">
                                     <div class="post-meta">
                                         <a class="post-category cat-3" href="category.html">Jquery</a>
@@ -321,7 +321,7 @@
                             </div>
 
                             <div class="post post-thumb">
-                                <a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
+                                <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-1.jpg" alt=""></a>
                                 <div class="post-body">
                                     <div class="post-meta">
                                         <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -336,7 +336,7 @@
                         <!-- ad -->
                         <div class="aside-widget text-center">
                             <a href="#" style="display: inline-block;margin: auto;">
-                                <img class="img-responsive" src="./img/ad-1.jpg" alt="">
+                                <img class="img-responsive" src="${pageContext.request.contextPath}/page/img/ad-1.jpg" alt="">
                             </a>
                         </div>
                         <!-- /ad -->
@@ -363,7 +363,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-4.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -378,7 +378,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-5.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-5.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-3" href="category.html">Jquery</a>
@@ -393,7 +393,7 @@
                     <!-- post -->
                     <div class="col-md-4">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="./img/post-3.jpg" alt=""></a>
+                            <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-3.jpg" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-1" href="category.html">Web Design</a>
@@ -427,7 +427,7 @@
                             <!-- post -->
                             <div class="col-md-12">
                                 <div class="post post-row">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-4.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -443,7 +443,7 @@
                             <!-- post -->
                             <div class="col-md-12">
                                 <div class="post post-row">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-6.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-6.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-2" href="category.html">JavaScript</a>
@@ -459,7 +459,7 @@
                             <!-- post -->
                             <div class="col-md-12">
                                 <div class="post post-row">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-1.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-4" href="category.html">Css</a>
@@ -475,7 +475,7 @@
                             <!-- post -->
                             <div class="col-md-12">
                                 <div class="post post-row">
-                                    <a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
+                                    <a class="post-img" href="blog-post.html"><img src="${pageContext.request.contextPath}/page/img/post-2.jpg" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-3" href="category.html">Jquery</a>
@@ -500,7 +500,7 @@
                         <!-- ad -->
                         <div class="aside-widget text-center">
                             <a href="#" style="display: inline-block;margin: auto;">
-                                <img class="img-responsive" src="./img/ad-1.jpg" alt="">
+                                <img class="img-responsive" src="${pageContext.request.contextPath}/page/img/ad-1.jpg" alt="">
                             </a>
                         </div>
                         <!-- /ad -->

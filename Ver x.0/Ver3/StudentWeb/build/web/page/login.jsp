@@ -15,16 +15,16 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet"> 
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/bootstrap.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/page/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="css/style.css"/>
-        <link type="text/css" rel="stylesheet" href="css/login.css"/>
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/login.css"/>
         <!-- Custom Js -->
-        <script src="js/jquery.min.js"></script>;
+        <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>;
     </heaập
     <body>
         <jsp:include page="header.jsp"></jsp:include>
@@ -36,12 +36,12 @@
                         <form action="../LoginServlet"  method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên đăng nhập</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="B15DCCN660" required autofocus>
+                                <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="B15DCCN660" required autofocus>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your account with anyone else.</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mật khẩu</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="vuong19971015" required>
+                                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="vuong19971015" required>
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

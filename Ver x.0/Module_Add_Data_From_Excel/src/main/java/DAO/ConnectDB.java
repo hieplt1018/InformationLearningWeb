@@ -27,7 +27,7 @@ public class ConnectDB {
     PreparedStatement ps = null;
     ResultSet rs = null;
     String user = "root";
-    String pass = "mariadb";
+    String pass = "12345678";
 
     public void hasDriver() throws Exception {
         try {
@@ -40,8 +40,8 @@ public class ConnectDB {
 
     public Connection openConnect() throws Exception {
         hasDriver();
-        String url = "jdbc:mariadb://localhost:3306/qldt";
-//        String url = "jdbc:mysql://127.0.0.1:3306/qldt";
+        String url = "jdbc:mariadb://localhost:3307/studentweb";
+//        String url = "jdbc:mysql://localhost/studentweb";
         try {
             this.connect = DriverManager.getConnection(url, user, pass);
             //System.out.println("Đã kết nối");

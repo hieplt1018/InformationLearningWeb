@@ -22,103 +22,44 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        String result = "Đăng nhập sai :(";
-//       
-//        try {
-//            String mainQLDT = "http://qldt.ptit.edu.vn/";
-//            String defaultQLDT = "http://qldt.ptit.edu.vn/default.aspx";
-//             
-//            LoginControl http = new LoginControl();
-//            
-//            CookieHandler.setDefault(new CookieManager());
-//            http.GetCookie(mainQLDT);
-//            String postParams = http.getFormParams(username, password);
-//            http.sendPost(defaultQLDT, postParams);
-//            if(http.checkLogin(username)){
-//                RequestDispatcher dispatcher = request.getRequestDispatcher("./page/index.jsp");
-//                        dispatcher.forward(request, response);
-//                      //  request.setAttribute("username", username);
-////                response.sendRedirect("./pag"e/newjsp.jsp");
-//            }
-//            else{
-//                response.sendRedirect("./page/login.jsp");
-//            }
-//            
-//        } catch (Exception ex) {
-//            
-//        }
-//        
-//        
-//    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        // Để hiển thị Tiếng Việt
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        //-----------
         PrintWriter out1 = response.getWriter();
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-        
-        
-        
+   
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String result = "Đăng nhập sai :(";
-       
+        String url = "";
         try {
             String mainQLDT = "http://qldt.ptit.edu.vn/";
             String defaultQLDT = "http://qldt.ptit.edu.vn/default.aspx";
-             
+            
+            out1.print(url + " Hello");
             LoginControl http = new LoginControl();
-            out1.println("<h1>hELLO " + request.getContextPath() + "</h1>");
             CookieHandler.setDefault(new CookieManager());
             http.GetCookie(mainQLDT);
             String postParams = http.getFormParams(username, password);
             http.sendPost(defaultQLDT, postParams);
             if(http.checkLogin(username)){
-                RequestDispatcher dispatcher = request.getRequestDispatcher("../page/index.jsp");
-                        dispatcher.forward(request, response);
-                      //  request.setAttribute("username", username);
-//                response.sendRedirect("./pag"e/newjsp.jsp");
+                url = "./page/index.jsp";
+                
             }
             else{
-                response.sendRedirect("../page/login.jsp");
+                url = "./page/login.jsp";
+                out1.print(url + " goodbye");
             }
-            
+            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+//            RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+//            rd.forward(request, response);
         } catch (Exception ex) {
-            out1.println("<h1>wRONG " + request.getContextPath() + "</h1>");
+            out1.println("<h1> WRONG " + request.getContextPath() + "</h1>");
         }
         
         
