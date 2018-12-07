@@ -114,11 +114,12 @@ RESPONSIVE
 }
  .input {
      height: 40px;
-     border: 2px solid #eceef2;
+     border: 2px solid #00a3cc;
      width: 100%;
      padding: 0px 15px;
      -webkit-transition: 0.2s border;
      transition: 0.2s border;
+     color: #293d3d;
 }
  .input:focus {
      border-color: #3d455c;
@@ -928,7 +929,7 @@ RESPONSIVE
 }
  #footer .container {
      padding-top: 80px;
-     border-top: 1px solid #F4f4fc;
+     border-top: 1px solid  #a3c2c2;
 }
  .footer-widget {
      margin-bottom: 40px;
@@ -960,7 +961,7 @@ RESPONSIVE
 }
  .footer-copyright {
      margin-top: 20px;
-     color: #a7b3c6;
+     color: #293d3d;
      font-size: 13px;
 }
  .footer-newsletter form {
