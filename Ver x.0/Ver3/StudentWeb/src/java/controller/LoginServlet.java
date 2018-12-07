@@ -6,6 +6,7 @@ package controller;
  * and open the template in the editor.
  */
 
+import DAO.StudentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.CookieHandler;
@@ -15,13 +16,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Student;
 
 /**
  *
  * @author Administrator
  */
 public class LoginServlet extends HttpServlet {
-
+    StudentDAO studentDAO = new StudentDAO();
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,6 +40,9 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String result = "Đăng nhập sai :(";
         String url = "";
+        HttpSession session = request.getSession();
+        
+        
         try {
             String mainQLDT = "http://qldt.ptit.edu.vn/";
             String defaultQLDT = "http://qldt.ptit.edu.vn/default.aspx";
@@ -47,8 +54,9 @@ public class LoginServlet extends HttpServlet {
             String postParams = http.getFormParams(username, password);
             http.sendPost(defaultQLDT, postParams);
             if(http.checkLogin(username)){
+                Student student = studentDAO.getStudent(username);
                 url = "./page/index.jsp";
-                
+                session.setAttribute("student", student);
             }
             else{
                 url = "./page/login.jsp";

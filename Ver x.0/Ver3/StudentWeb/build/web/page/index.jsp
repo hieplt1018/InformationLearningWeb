@@ -23,6 +23,10 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/style.css"/>
+        <!--Js-->
+        <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/page/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/page/js/main.js"></script>
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>

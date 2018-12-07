@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="model.Student"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,12 @@
         <title>Header</title>
     </head>
     <body>
+        <%
+            Student student = null;
+            if(session.getAttribute("student") != null) {
+                student = (Student) session.getAttribute("student");
+            }
+        %>
         <header id="header">
             <!-- Nav -->
             <div id="nav">
@@ -36,7 +43,17 @@
 
                         <!-- search & aside toggle -->
                         <div class="nav-btns">
-                            <button class="primary-button " id="primary-button"  onclick="location.href = 'login.jsp';" > Đăng Nhập</button>
+                            <% if(student != null) { %>
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    $('.login').remove();
+                                });
+                            </script>
+                            <span>Welcome <%=student.getFirstName()%> <%=student.getLastName()%></span>
+                            <% } else { %>
+                                <button class="primary-button login" id="primary-button"  onclick="location.href = 'login.jsp';" > Đăng Nhập</button>
+                            <% } %>
+                            
                             <button class="aside-btn"><i class="fa fa-bars"></i></button>
                             <button class="search-btn"><i class="fa fa-search"></i></button>
                             <div class="search-form">

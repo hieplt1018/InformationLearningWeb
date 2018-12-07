@@ -67,6 +67,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link type=\"text/css\" rel=\"stylesheet\" href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/page/css/style.css\"/>\n");
+      out.write("        <!--Js-->\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/page/js/jquery.min.js\"></script>\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/page/js/bootstrap.min.js\"></script>\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/page/js/main.js\"></script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
