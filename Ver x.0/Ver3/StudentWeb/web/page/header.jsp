@@ -34,7 +34,7 @@
                         <!-- nav -->
                         <ul class="nav-menu nav navbar-nav">
                             <li><a href="category.html">Tin tức</a></li>
-                            <li class="cat-1"><a href="mark.jsp">Điểm</a></li>
+                            <li class="cat-1"><a href="page/mark.jsp">Điểm</a></li>
                             <li class="cat-2"><a href="category.html">TKB</a></li>
                             <li class="cat-3"><a href="category.html">Thông tin cá nhân</a></li>
                             <li class="cat-4"><a href="category.html">Lịch thi</a></li>
