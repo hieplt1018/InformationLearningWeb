@@ -111,7 +111,7 @@ public class ImportData {
         diem22.importData(8);
 
         DataDiem diem23 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Nhap mon cong nghe phan mem(web).xlsx");
-        diem23.importData(8);
+        diem23.importData2(8);
         DataDiem diem24 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Nhap mon tri tue nhan tao(web).xlsx");
         diem24.importData(8);
         DataDiem diem25 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phan tich va thiet ke he thong thong tin(web).xlsx");
