@@ -41,7 +41,7 @@
                     <div class="col-md-8">
                         <div class="row">
 <!--                             post -->
-                            <form action="../MarkServlet"  method="post">
+                            <form action="${pageContext.request.contextPath}/MarkServlet"  method="post">
                                 <div class="form-group">
                                     <label for="inputSemester">Nhập học kỳ xem điểm thi (ví dụ: 20171): </label>
                                     <input name="maHK" type="text" class="form-control" id="inputSemester" aria-describedby="" placeholder="Nhập học kỳ" value="" required autofocus>

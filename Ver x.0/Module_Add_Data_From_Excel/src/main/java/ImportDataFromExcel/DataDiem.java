@@ -41,8 +41,8 @@ public class DataDiem {
     public void importData(int start) {
         int numberOfSheet = myWorkBook.getNumberOfSheets();
         XSSFRow row;
-        int maHK = 20172;
-        
+        int maHK = 20171; // diem29, 30, 31,32 dung ma HK nay
+//        int maHK = 20172;
         for (int n = 0; n < numberOfSheet; n++) {
             System.out.println("Starting...");
             XSSFSheet sheet = myWorkBook.getSheetAt(n);
@@ -51,7 +51,8 @@ public class DataDiem {
             row = sheet.getRow(3);
             String soTC = "" + (int) row.getCell(3).getNumericCellValue();
             DiemDAO dAO = new DiemDAO();
-            String maMH = dAO.getMaMH(tenMH);
+//            String maMH = dAO.getMaMH(tenMH);
+            String maMH = "INT1332"; // Do 29, 30 ,21, 32 chưa cập nhật trong lịch thi nên phải add maMH bằng tay
             for (int i = start;; i++) {
                 row = sheet.getRow(i);
                 String maSV = row.getCell(2).getStringCellValue();
@@ -99,7 +100,7 @@ public class DataDiem {
     public void importData2(int start) {
         int numberOfSheet = myWorkBook.getNumberOfSheets();
         XSSFRow row;
-        int maHK = 20172;
+        int maHK = 20171;
         
         for (int n = 0; n < numberOfSheet; n++) {
             System.out.println("Starting...");
@@ -155,90 +156,100 @@ public class DataDiem {
 
     public static void main(String[] args) {
         String path = System.getProperty("user.dir");
-        DataDiem diem = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD An toan he dieu hanh(web).xlsx");
-        diem.importData(8);
-
-        DataDiem diem1 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD An toan mang nang cao(web).xlsx");
-        diem1.importData(8);
-
-        DataDiem diem2 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD An toan va bao mat HTTT(web).xlsx");
-        diem2.importData2(8);
-  
-        DataDiem diem3 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cac he thong phan tan(web).xlsx");
-        diem3.importData2(8);
-
-        DataDiem diem4 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cac ky thuat giau tin(web).xlsx");
-        diem4.importData(8);
-
-        DataDiem diem5 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cac ky thuat lap trinh(web).xlsx");
-        diem5.importData2(8);
-        
-        DataDiem diem6 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cau truc du lieu va giai thuat(web).xlsx");
-        diem6.importData2(8);
-
-        DataDiem diem7 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Chuyen de cong nghe phan mem(web).xlsx");
-        diem7.importData2(8);
-
-        DataDiem diem8 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Chuyen de he thong thong tin(web).xlsx");
-        diem8.importData2(8);
-
-        DataDiem diem9 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Co so an toan thong tin(web).xlsx");
-        diem9.importData2(8);
-
-        DataDiem diem10 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Co so du lieu(web).xlsx");
-        diem10.importData(8);
-        
-        DataDiem diem11 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Dam bao chat luong phan mem(web).xlsx");
-        diem11.importData(8);
-
-        DataDiem diem12 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD He co so du lieu da phuong tien(web).xlsx");
-        diem12.importData2(8);
-
-        DataDiem diem13 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD He dieu hanh Windows va Linux_Unix(web).xlsx");
-        diem13.importData2(8);
-
-        DataDiem diem14 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kho du lieu va khai pha du lieu(web).xlsx");
-        diem14.importData(8);
-
-        DataDiem diem15 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kiem thu xam nhap mang(web).xlsx");
-        diem15.importData(8);
-
-        DataDiem diem16 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kien truc may tinh(web).xlsx");
-        diem16.importData(8);
-
-        DataDiem diem17 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kien truc va thiet ke phan mem(web).xlsx");
-        diem17.importData(8);
-
-        DataDiem diem18 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Ky thuat do hoa(web).xlsx");
-        diem18.importData(8);
-
-        DataDiem diem19 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Ky thuat theo doi va giam sat an toan mang(web).xlsx");
-        diem19.importData(8);
-        
-        DataDiem diem20 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Lap trinh web(web).xlsx");
-        diem20.importData2(8);
+//        DataDiem diem = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD An toan he dieu hanh(web).xlsx");
+//        diem.importData(8);
+//
+//        DataDiem diem1 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD An toan mang nang cao(web).xlsx");
+//        diem1.importData(8);
+//
+//        DataDiem diem2 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD An toan va bao mat HTTT(web).xlsx");
+//        diem2.importData2(8);
+//  
+//        DataDiem diem3 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cac he thong phan tan(web).xlsx");
+//        diem3.importData2(8);
+//
+//        DataDiem diem4 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cac ky thuat giau tin(web).xlsx");
+//        diem4.importData(8);
+//
+//        DataDiem diem5 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cac ky thuat lap trinh(web).xlsx");
+//        diem5.importData2(8);
 //        
-        DataDiem diem21 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Mang may tinh(web).xlsx");
-        diem21.importData(8);
-
-        DataDiem diem22 = new DataDiem(path + "\\CSDL\\Nganh CNTT\\BD Mat ma hoc co so(web).xlsx");
-        diem22.importData(8);
-
-        DataDiem diem23 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Nhap mon cong nghe phan mem(web).xlsx");
-        diem23.importData(8);
-        DataDiem diem24 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Nhap mon tri tue nhan tao(web).xlsx");
-        diem24.importData(8);
-        DataDiem diem25 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phan tich va thiet ke he thong thong tin(web).xlsx");
-        diem25.importData(8);
-        DataDiem diem26 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phat trien he thong thong tin quan ly(web).xlsx");
-        diem26.importData2(8);
-     
-        DataDiem diem28 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phat trien phan mem huong dich vu(web).xlsx");
-        diem28.importData(8);
-        DataDiem diem29 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phat trien ung dung cho cac thiet bi di dong(web).xlsx");
-        diem29.importData2(8);
-
-       
+//        DataDiem diem6 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Cau truc du lieu va giai thuat(web).xlsx");
+//        diem6.importData2(8);
+//
+//        DataDiem diem7 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Chuyen de cong nghe phan mem(web).xlsx");
+//        diem7.importData2(8);
+//
+//        DataDiem diem8 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Chuyen de he thong thong tin(web).xlsx");
+//        diem8.importData2(8);
+//
+//        DataDiem diem9 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Co so an toan thong tin(web).xlsx");
+//        diem9.importData2(8);
+//
+//        DataDiem diem10 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Co so du lieu(web).xlsx");
+//        diem10.importData(8);
+//        
+//        DataDiem diem11 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Dam bao chat luong phan mem(web).xlsx");
+//        diem11.importData(8);
+//
+//        DataDiem diem12 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD He co so du lieu da phuong tien(web).xlsx");
+//        diem12.importData2(8);
+//
+//        DataDiem diem13 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD He dieu hanh Windows va Linux_Unix(web).xlsx");
+//        diem13.importData2(8);
+//
+//        DataDiem diem14 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kho du lieu va khai pha du lieu(web).xlsx");
+//        diem14.importData(8);
+//
+//        DataDiem diem15 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kiem thu xam nhap mang(web).xlsx");
+//        diem15.importData(8);
+//
+//        DataDiem diem16 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kien truc may tinh(web).xlsx");
+//        diem16.importData(8);
+//
+//        DataDiem diem17 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Kien truc va thiet ke phan mem(web).xlsx");
+//        diem17.importData(8);
+//
+//        DataDiem diem18 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Ky thuat do hoa(web).xlsx");
+//        diem18.importData(8);
+//
+//        DataDiem diem19 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Ky thuat theo doi va giam sat an toan mang(web).xlsx");
+//        diem19.importData(8);
+//        
+//        DataDiem diem20 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Lap trinh web(web).xlsx");
+//        diem20.importData2(8);
+////        
+//        DataDiem diem21 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Mang may tinh(web).xlsx");
+//        diem21.importData(8);
+//
+//        DataDiem diem22 = new DataDiem(path + "\\CSDL\\Nganh CNTT\\BD Mat ma hoc co so(web).xlsx");
+//        diem22.importData(8);
+//
+//        DataDiem diem23 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Nhap mon cong nghe phan mem(web).xlsx");
+//        diem23.importData(8);
+//        DataDiem diem24 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Nhap mon tri tue nhan tao(web).xlsx");
+//        diem24.importData(8);
+//        DataDiem diem25 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phan tich va thiet ke he thong thong tin(web).xlsx");
+//        diem25.importData(8);
+//        DataDiem diem26 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phat trien he thong thong tin quan ly(web).xlsx");
+//        diem26.importData2(8);
+//     
+//        DataDiem diem28 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phat trien phan mem huong dich vu(web).xlsx");
+//        diem28.importData(8);
+//        DataDiem diem29 = new DataDiem(path+"\\CSDL\\Nganh CNTT\\BD Phat trien ung dung cho cac thiet bi di dong(web).xlsx");
+//        diem29.importData2(8);
+//
+//        DataDiem diem30 = new DataDiem(path + "\\CSDL\\Nganh CNTT\\Co so du lieu (web).xlsx");
+//        diem30.importData(8);
+        
+//        DataDiem diem31 = new DataDiem(path + "\\CSDL\\Nganh CNTT\\He dieu hanh(web).xlsx");
+//        diem31.importData(8);
+////        
+//        DataDiem diem32 = new DataDiem(path + "\\CSDL\\Nganh CNTT\\Ky thuat vi xu ly(web).xlsx");
+//        diem32.importData(8);
+//        
+        DataDiem diem33 = new DataDiem(path + "\\CSDL\\Nganh CNTT\\Lap trinh huong doi tuong(web).xlsx");
+        diem33.importData(8);
     }
 }
 //    public String doiSangChu(float n) {

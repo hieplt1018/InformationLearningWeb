@@ -47,6 +47,7 @@ public class DiemDAO {
             ps.setString(11, diem.getDiemChu());
             ps.setString(12, diem.getDiemTH());
             ps.executeUpdate();
+            con.closeConnet();
         } catch (Exception ex) {
             Logger.getLogger(DiemDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -61,7 +62,6 @@ public class DiemDAO {
             rs = stm.executeQuery(sql);
             while (rs.next()) {
                 return rs.getString(1);
-
             }
         } catch (Exception ex) {
             Logger.getLogger(DiemDAO.class.getName()).log(Level.SEVERE, null, ex);
