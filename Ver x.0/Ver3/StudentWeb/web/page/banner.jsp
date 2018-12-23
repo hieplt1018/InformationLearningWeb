@@ -18,9 +18,20 @@
                     <div class="col-md-10">
                         <ul class="page-header-breadcrumb">
                             <li><a href="index.html">Home</a></li>
-                            <li>Điểm</li>
+                            <% 
+                                String url[] = request.getRequestURL().toString().split("/");
+                                String jsp = url[url.length-1];
+                                if (jsp.equals("timeTable.jsp")){
+                                %>
+                                    <li>Thời Khóa Biểu</li>
+                                <%} else {%>
+                                    <li>Sai</li>
+                                <%}%>
                         </ul>
-                        <h1>Điểm</h1>
+                        <h1><%if (jsp.equals("timeTable.jsp")) {%>
+                            Thời Khóa Biểu
+                            <%}%>
+                        </h1>
                     </div>
                 </div>
             </div>
