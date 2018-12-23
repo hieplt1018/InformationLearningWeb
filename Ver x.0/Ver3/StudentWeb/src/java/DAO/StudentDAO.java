@@ -30,23 +30,30 @@ public class StudentDAO {
     
     
     public Student getStudent(String studentID) throws SQLException, Exception {
-            String sql = "SELECT * FROM tblsinhvien WHERE MaSV = '" + studentID + "'";
-            System.out.println(sql);
-            stmt = connectdb.openConnect().prepareStatement(sql);
-            rs = stmt.executeQuery();
-            Student student = null;
-            while(rs.next()){
-                String studentId = rs.getString("maSV");
-                String lastName = rs.getString("Ho");
-                String firstName = rs.getString("Ten");
-                student = new Student(studentId, lastName, firstName);
+        Student student = new Student();
+        String strSQL = "select * from tblSinhVien where MaSV = '" + studentID + "'";
+        try {
+            rs = connectdb.getStatement().executeQuery(strSQL);
+            while (rs.next()) {
+                student.setsClass(rs.getString("Lop"));
+                student.setsId(rs.getString("MaSV"));
+                student.setLastName(rs.getString("Ho"));
+                student.setFirstName(rs.getString("Ten"));
+                student.setDateOfBirth(rs.getString("NgaySinh"));
+                student.setPlaceOfBirth(rs.getString("NoiSinh"));
+                student.setSex(rs.getString("GioiTinh"));
             }
-            return student;
+            connectdb.closeConnet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return student;  
     }
     
     public static void main(String[] args) throws Exception {
         StudentDAO dao = new StudentDAO();
-//        Student duyen = dao.getStudent("B15DCCN209");
-        System.out.println(dao.getStudent("B15DCCN209").getLastName() + dao.getStudent("B15DCCN209").getFirstName());
+        Student sv = dao.getStudent("B15DCCN209");
+        System.out.println(sv.getLastName() + sv.getFirstName());
+        
     }
 }

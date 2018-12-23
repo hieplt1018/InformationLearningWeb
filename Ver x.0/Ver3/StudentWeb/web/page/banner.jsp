@@ -24,12 +24,23 @@
                                 if (jsp.equals("timeTable.jsp")){
                                 %>
                                     <li>Thời Khóa Biểu</li>
-                                <%} else {%>
-                                    <li>Sai</li>
-                                <%}%>
+                                <%} else if (jsp.equals("mark.jsp")){%>
+                                    <li>Điểm</li>
+                                <%} else if (jsp.equals("studentInfo.jsp")) {%>
+                                    <li>Thông tin sinh viên</li>
+                                <%} else if (jsp.equals("lichthi.jsp")) {%>
+                                    <li>Lịch thi</li>
+                                <%}%>    
                         </ul>
-                        <h1><%if (jsp.equals("timeTable.jsp")) {%>
-                            Thời Khóa Biểu
+                        <h1>
+                            <%if (jsp.equals("timeTable.jsp")) {%>
+                                Thời Khóa Biểu
+                            <%} else if (jsp.equals("mark.jsp")) {%> 
+                                Điểm
+                            <%} else if (jsp.equals("studentInfo.jsp")) {%>
+                                Thông tin sinh viên
+                            <%} else if (jsp.equals("lichthi.jsp")) {%>
+                                Lịch thi
                             <%}%>
                         </h1>
                     </div>

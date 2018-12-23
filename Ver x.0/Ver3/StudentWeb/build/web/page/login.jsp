@@ -25,7 +25,7 @@
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/login.css"/>
         <!-- Custom Js -->
         <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>;
-    </heaập
+    </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
         <jsp:include page="banner.jsp"></jsp:include>

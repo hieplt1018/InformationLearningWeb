@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="DAO.MarkDAO"%>
 <%@page import="model.Student"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,17 +28,17 @@
                     <div class="container">
                         <!-- logo -->
                         <div class="nav-logo">
-                            <a href="index.jsp" class="logo"><img src="${pageContext.request.contextPath}/page/img/logo.png" alt=""></a>
+                            <a href="${pageContext.request.contextPath}/page/index.jsp" class="logo"><img src="${pageContext.request.contextPath}/page/img/logo.png" alt=""></a>
                         </div>
                         <!-- /logo -->
 
                         <!-- nav -->
                         <ul class="nav-menu nav navbar-nav">
-                            <li><a href="category.html">Tin tức</a></li>
-                            <li class="cat-1"><a href="page/mark.jsp">Điểm</a></li>
-                            <li class="cat-2"><a href="category.html">TKB</a></li>
-                            <li class="cat-3"><a href="category.html">Thông tin cá nhân</a></li>
-                            <li class="cat-4"><a href="category.html">Lịch thi</a></li>
+                            <li><a href="hotNews.jsp">Tin tức</a></li>
+                            <li class="cat-1"><a href="${pageContext.request.contextPath}/page/mark.jsp">Điểm</a></li>
+                            <li class="cat-2"><a href="${pageContext.request.contextPath}/page/timeTable.jsp">TKB</a></li>
+                            <li class="cat-3"><a href="${pageContext.request.contextPath}/page/studentInfo.jsp">Thông tin cá nhân</a></li>
+                            <li class="cat-4"><a href="${pageContext.request.contextPath}/page/lichthi.jsp">Lịch thi</a></li>
                         </ul>
                         <!-- /nav -->
 
@@ -51,7 +52,7 @@
                             </script>
                             <span>Welcome <%=student.getLastName()%> <%=student.getFirstName()%></span>
                             <% } else { %>
-                                <button class="primary-button login" id="primary-button"  onclick="location.href = 'login.jsp';" > Đăng Nhập</button>
+                            <button class="primary-button login" id="primary-button"  onclick="location.href = '${pageContext.request.contextPath}/page/login.jsp';" > Đăng Nhập</button>
                             <% } %>
                             
                             <button class="aside-btn"><i class="fa fa-bars"></i></button>

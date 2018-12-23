@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
    
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String result = "Đăng nhập sai :(";
+        //String result = "Đăng nhập sai :(";
         String url = "";
         HttpSession session = request.getSession();
         
@@ -47,27 +47,36 @@ public class LoginServlet extends HttpServlet {
             String mainQLDT = "http://qldt.ptit.edu.vn/";
             String defaultQLDT = "http://qldt.ptit.edu.vn/default.aspx";
             
-            out1.print(url + " Hello");
+            
             LoginControl http = new LoginControl();
             CookieHandler.setDefault(new CookieManager());
             http.GetCookie(mainQLDT);
             String postParams = http.getFormParams(username, password);
             http.sendPost(defaultQLDT, postParams);
             if(http.checkLogin(username)){
-                Student student = studentDAO.getStudent(username);
+                Student student = studentDAO.getStudent(username);out1.print(studentDAO.getStudent(username));
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
+                RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+                dispatcher.forward(request, response);
             }
             else{
                 url = "./page/login.jsp";
-                out1.print(url + " goodbye");
+                String errorMessage = "Tên đăng nhập hoặc mật khẩu không chính xác";
+ 
+                request.setAttribute("errorMessage", errorMessage);
+                RequestDispatcher dispatcher =  request.getRequestDispatcher(url);
+                dispatcher.forward(request, response);
+//                dispatcher.include(request, response);
+                
             }
-            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+            
 //            RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 //            rd.forward(request, response);
         } catch (Exception ex) {
+            
             out1.println("<h1> WRONG " + request.getContextPath() + "</h1>");
+            out1.println("<h1> WRONG " + ex.toString() + "</h1>");
         }
         
         

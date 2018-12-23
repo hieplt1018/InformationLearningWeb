@@ -26,16 +26,15 @@ public class MarkDAO {
         connectdb = new connectDB();
     }
     
-    public ArrayList<Mark> getMark(String maSV) {
+    public ArrayList<Mark> getMark(String maSV, int maHK) {
         ArrayList<Mark> list = new ArrayList();
-        String sql = "SELECT * FROM tbldiem WHERE MaSV = '" + maSV + "'";
+        String sql = "SELECT * FROM tbldiem WHERE MaSV = '" + maSV + "' AND MaHK = '" + maHK + "'";
         System.out.println(sql);
         try {
             stmt = connectdb.openConnect().prepareStatement(sql);
             rs = stmt.executeQuery();
             Mark mark = null;
             while (rs.next()) {
-                int maHK = rs.getInt("MaHK");
                 String maMH = rs.getString("MaMH");
                 String tenMH = rs.getString("TenMH");
                 String soTC = rs.getString("soTC");
@@ -57,7 +56,7 @@ public class MarkDAO {
     
     public static void main(String[] args) {
         MarkDAO markDAO = new MarkDAO();
-        ArrayList<Mark> list = markDAO.getMark("B15DCCN209");
+        ArrayList<Mark> list = markDAO.getMark("B15DCCN209", 20171);
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getSubjectName() + ": " + list.get(i).getDiemTK());
         }

@@ -15,14 +15,13 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet"> 
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/bootstrap.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/page/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="css/style.css"/>
-        <link type="text/css" rel="stylesheet" href="css/mark.css"/>
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/style.css"/>
         <!-- Custom Js -->
         <script src="js/diem.js"></script>;
     </head>
@@ -32,8 +31,8 @@
         <jsp:include page="contentMark.jsp"></jsp:include>
         <jsp:include page="footer.jsp"></jsp:include>
         
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/page/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/page/js/main.js"></script>
     </body>
 </html>
