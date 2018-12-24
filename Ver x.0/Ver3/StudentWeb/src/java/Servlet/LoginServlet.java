@@ -1,4 +1,4 @@
-package controller;
+package Servlet;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,17 +6,23 @@ package controller;
  * and open the template in the editor.
  */
 
+import DAO.LichThiDAO;
+import controller.LoginControl;
 import DAO.StudentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.CookieHandler;
 import java.net.CookieManager;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.LichThi;
 import model.Student;
 
 /**
@@ -25,6 +31,9 @@ import model.Student;
  */
 public class LoginServlet extends HttpServlet {
     StudentDAO studentDAO = new StudentDAO();
+    long miliSeconds = System.currentTimeMillis();
+    Date toDay = new Date(miliSeconds);
+    LichThiDAO lichThiDao = new LichThiDAO();
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -57,6 +66,19 @@ public class LoginServlet extends HttpServlet {
                 Student student = studentDAO.getStudent(username);out1.print(studentDAO.getStudent(username));
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
+                
+                ArrayList<LichThi> lichThi = lichThiDao.getLichThi(username);
+                String thongBao = "";
+                for (LichThi monThi : lichThi) {
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    String strToday = formatter.format(toDay);           // Chuyen Date thanh String
+                    if (monThi.getNgayThi().equals(strToday)) {
+                        thongBao = "Hôm nay thi môn " + monThi.getTenMH() + " vào lúc " + monThi.getGioBD() + " tại phòng " + monThi.getPhongThi() + ". Chúc bạn may mắn!";
+                    }
+                    System.out.println(thongBao);
+                }
+                session.setAttribute("thongBao", thongBao);
+                
                 RequestDispatcher dispatcher = request.getRequestDispatcher(url);
                 dispatcher.forward(request, response);
             }

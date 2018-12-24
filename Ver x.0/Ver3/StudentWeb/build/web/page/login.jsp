@@ -25,6 +25,11 @@
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/login.css"/>
         <!-- Custom Js -->
         <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>;
+        <script>
+            if(document.getElementById('thongBao') != null) {
+                swal('Hello');
+            }
+        </script>
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
