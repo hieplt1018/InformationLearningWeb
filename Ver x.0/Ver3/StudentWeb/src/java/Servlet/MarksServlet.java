@@ -22,7 +22,7 @@ import model.Student;
  *
  * @author admin
  */
-public class MarkServlet extends HttpServlet {
+public class MarksServlet extends HttpServlet {
     MarkDAO markDao = new MarkDAO();
     
     @Override

@@ -4,25 +4,18 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Servlet.LoginServlet</servlet-class>
     </servlet>
+
     <servlet>
-        <servlet-name>NotificationServlet</servlet-name>
-        <servlet-class>Servlet.NotificationServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NotificationsServlet</servlet-name>
-        <servlet-class>Servlet.NotificationsServlet</servlet-class>
+        <servlet-name>MarksServlet</servlet-name>
+        <servlet-class>Servlet.MarksServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NotificationServlet</servlet-name>
-        <url-pattern>/NotificationServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NotificationsServlet</servlet-name>
-        <url-pattern>/NotificationsServlet</url-pattern>
+        <servlet-name>MarksServlet</servlet-name>
+        <url-pattern>/MarksServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
