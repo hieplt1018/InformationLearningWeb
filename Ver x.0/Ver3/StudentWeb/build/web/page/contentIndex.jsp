@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
         <%
-            if(session.getAttribute("thongBao") != "" ) {
+            if(session.getAttribute("thongBao") != null ) {
                 String thongBao = (String) session.getAttribute("thongBao");
         %>
         <!-- section -->
@@ -28,6 +28,7 @@
                 <!-- row -->
                 <!-- post -->
                 <div class="row">
+                    <marquee id="thongBao">Chúc bạn một ngày tốt lành!</marquee> 
     <%
             }
     %>

@@ -43,7 +43,7 @@ public class StudentDAO {
                 student.setPlaceOfBirth(rs.getString("NoiSinh"));
                 student.setSex(rs.getString("GioiTinh"));
             }
-            connectdb.closeConnet();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

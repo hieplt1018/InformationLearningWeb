@@ -73,7 +73,10 @@ public class LoginServlet extends HttpServlet {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     String strToday = formatter.format(toDay);           // Chuyen Date thanh String
                     if (monThi.getNgayThi().equals(strToday)) {
-                        thongBao = "Hôm nay thi môn " + monThi.getTenMH() + " vào lúc " + monThi.getGioBD() + " tại phòng " + monThi.getPhongThi() + ". Chúc bạn may mắn!";
+                        thongBao = "Hôm nay thi môn: " + monThi.getTenMH() + " vào lúc " + monThi.getGioBD() + " tại phòng " + monThi.getPhongThi() + ". Chúc bạn may mắn!";
+                        break;
+                    }else {
+                        thongBao = "Chào mừng tới trang web của chúng tôi.";
                     }
                     System.out.println(thongBao);
                 }

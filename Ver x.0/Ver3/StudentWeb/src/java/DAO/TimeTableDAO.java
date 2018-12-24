@@ -33,8 +33,7 @@ public class TimeTableDAO {
                 + "WHERE MaSV = '" + studentID + "' " +
                 "AND a.MaHK = '" + 20172 + "' AND a.MaNhom = b.MaNhom AND a.MaMH = b.MaMH";
         System.out.println(sqlDangKyMonHoc);
-        stmt = connectdb.openConnect().prepareStatement(sqlDangKyMonHoc);
-        rs = stmt.executeQuery();
+        rs = connectdb.getStatement().executeQuery(sqlDangKyMonHoc);;
         TimeTable timeTable = null;
         while(rs.next()){
             String tenMH = rs.getString("tenMH");

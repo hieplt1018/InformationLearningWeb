@@ -23,28 +23,33 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/style.css"/>
-    </head>
-    <body>
-        <%
-            if (session.getAttribute("thongBao") != null) {
-                String thongBao = (String) session.getAttribute("thongBao");
-        %>
-        <jsp:include page="header.jsp"></jsp:include>
-        <jsp:include page="contentIndex.jsp"></jsp:include>
-        <jsp:include page="footer.jsp"></jsp:include>
-        
         <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/page/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/page/js/main.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script>
-            if(document.getElementById('thongBao') != null) {
+        
+    </head>
+    <body>
+        <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="contentIndex.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
+        
+        
+        <script>  
+            var content = document.getElementById('thongBao').innerHTML;
+            if(document.getElementById('thongBao') != null && content != "Chúc bạn một ngày tốt lành!" && content != "") {
                 swal({
                    title: "Lịch Thi",
-                   text: "<%=thongBao%>"});
+                   text: content});
             } else {
+                swal({
+                    title: "Cố lên!",
+                    text: "Không gì là không thể!",
+                    icon: "success",
+                });
             }
-        </script> 
-        <%}%>
+        </script>
+        
     </body>
 </html>
