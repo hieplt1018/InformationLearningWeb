@@ -43,8 +43,8 @@ public class LoginControl {
         http.GetCookie(mainQLDT);
         String postParams = http.getFormParams("B15DCCN660", "vuong19971015");
         http.sendPost(defaultQLDT, postParams);
-        System.out.println(http.checkLogin("B15DCCN660"));
-
+//        System.out.println(http.checkLogin("B15DCCN660"));
+        System.out.println(http.checkLoginTamThoi("B15DCCN660"));
     }
 
     public String getFormParams(String username, String password) throws UnsupportedEncodingException {
@@ -118,6 +118,15 @@ public class LoginControl {
         if (response.toString().contains(msv)) {
             return true;
         }else{
+            return false;
+        }
+    }
+    
+    public boolean checkLoginTamThoi(String msv) {
+        if(msv.equals("B15DCCN660")|| msv.equals("B15DCCN209")) {
+            System.out.println(msv);
+            return true;
+        } else {
             return false;
         }
     }

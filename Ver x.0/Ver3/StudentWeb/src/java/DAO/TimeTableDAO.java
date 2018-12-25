@@ -59,6 +59,15 @@ public class TimeTableDAO {
         return timeTableList;
     }    
     
+    public boolean checkTimeTable(TimeTable timeTable) {
+        
+        return true;
+    }
+    
+    public ArrayList<TimeTable> getTimeTableInToday(ArrayList<TimeTable> timeTable) {
+        ArrayList<TimeTable> timeTableToday = new ArrayList<>();
+        return timeTableToday;
+    }
     public static void main(String[] args) throws Exception {
         TimeTableDAO dao = new TimeTableDAO();
         ArrayList<TimeTable> timeTableList = dao.getTimeTable("B15DCCN209");

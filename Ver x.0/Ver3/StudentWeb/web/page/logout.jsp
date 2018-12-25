@@ -26,7 +26,7 @@
     <body>
         <%
             session.invalidate();
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("${pageContext.request.contextPath}/page/index.jsp");
         %>
     </body>
 </html>

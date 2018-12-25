@@ -25,11 +25,7 @@
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/login.css"/>
         <!-- Custom Js -->
         <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>;
-        <script>
-            if(document.getElementById('thongBao') != null) {
-                swal('Hello');
-            }
-        </script>
+        
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
@@ -38,7 +34,7 @@
             <div class="container">
                 <div class="col-md-6">
                     <div class="row">
-                        <form action="../LoginServlet"  method="post">
+                        <form action="${pageContext.request.contextPath}/LoginServlet"  method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên đăng nhập</label>
                                 <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="B15DCCN660" required autofocus>

@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out1 = response.getWriter();
    
         String username = request.getParameter("username");
+        System.out.println(username);
         String password = request.getParameter("password");
         //String result = "Đăng nhập sai :(";
         String url = "";
@@ -62,7 +63,9 @@ public class LoginServlet extends HttpServlet {
             http.GetCookie(mainQLDT);
             String postParams = http.getFormParams(username, password);
             http.sendPost(defaultQLDT, postParams);
-            if(http.checkLogin(username)){
+//            if(http.checkLogin(username)) {
+            if(http.checkLoginTamThoi(username) == true){
+                System.out.println("true");
                 Student student = studentDAO.getStudent(username);out1.print(studentDAO.getStudent(username));
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
@@ -86,6 +89,7 @@ public class LoginServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             else{
+                System.out.println("false");
                 url = "./page/login.jsp";
                 String errorMessage = "Tên đăng nhập hoặc mật khẩu không chính xác";
  

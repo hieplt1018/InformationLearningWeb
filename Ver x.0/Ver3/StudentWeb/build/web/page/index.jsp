@@ -33,15 +33,21 @@
         <jsp:include page="contentIndex.jsp"></jsp:include>
         <jsp:include page="footer.jsp"></jsp:include>
 
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
-        
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
         
         <script>  
             var content = document.getElementById('thongBao').innerHTML;
-            if(document.getElementById('thongBao') != null && content != "Chúc bạn một ngày tốt lành!" && content != "") {
+            if (content === "Chúc bạn một ngày tốt lành!") {
+                swal({
+                   title: "",
+                   text: content}
+                );
+            }
+            else if(content != "Chúc bạn một ngày tốt lành!" && content != "") {
                 swal({
                    title: "Lịch Thi",
-                   text: content});
+                   text: content}
+                );
             } else {
                 swal({
                     title: "Cố lên!",
