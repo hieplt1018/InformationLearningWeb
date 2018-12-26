@@ -6,11 +6,14 @@
 package DAO;
 
 import connectDB.connectDB;
+import controller.DateControl;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.HocKy;
 import model.TimeTable;
 
 /**
@@ -23,6 +26,9 @@ public class TimeTableDAO {
     private ResultSet rs = null;
     private connectDB connectdb;
 
+    long miliSeconds = System.currentTimeMillis();
+    Date toDay = new Date(miliSeconds);
+    
     public TimeTableDAO() {
         connectdb = new connectDB();
     }    
@@ -59,22 +65,90 @@ public class TimeTableDAO {
         return timeTableList;
     }    
     
-    public boolean checkTimeTable(TimeTable timeTable) {
-        return true;
+    public ArrayList<TimeTable> bubbleSortTimeTable(ArrayList<TimeTable> timeTable) {
+        TimeTable tt = new TimeTable();
+        for (int i = 0; i < timeTable.size() - 1; i++) {
+            for (int j = 0; j < timeTable.size() - 1 - i; j++) {
+                int a = Integer.parseInt(timeTable.get(j).getTietBD());
+                int b = Integer.parseInt(timeTable.get(j + 1).getTietBD());
+                if (a > b) {
+                    tt = timeTable.get(j);
+                    timeTable.set(j, timeTable.get(j+1));
+                    timeTable.set(j+1, tt);
+                }
+            }
+        }
+        return timeTable;
     }
     
-    public ArrayList<TimeTable> getTimeTableInToday(ArrayList<TimeTable> timeTable) {
-        ArrayList<TimeTable> timeTableToday = new ArrayList<>();
-        for (TimeTable tt: timeTable){
+    public ArrayList<TimeTable> getTimeTableInToday(ArrayList<TimeTable> timeTable, int maHK) throws Exception {
+        DateControl dateCtr = new DateControl();
+        ArrayList<TimeTable> timeTableTodayList = new ArrayList<>();
+        TimeTableDAO dao = new TimeTableDAO();
+        HocKyDAO hkDao = new HocKyDAO();
+        HocKy hk = hkDao.getHocKy(20172);
+        TimeTable timeTableToDay = null;
+        int tuanBD = dateCtr.getSttTuan(hk.getNgayBD());
+        int tuanHT = dateCtr.getSttTuan("23/01/2018");
+//        int tuanHT = dateCtr.getSttThisWeek();
+//        int toDay = dateCtr.chuyenDoiThuTrongTuan();
+        int toDay = 3;
+        System.out.println(toDay);
+        
+        
+            for (TimeTable tt : timeTable) {
+                String[] tuanHocStr = tt.getTuanHoc().split("");
+                String sttTuanHienTai = Integer.toString(tuanHT - tuanBD + 1);
+                for(int i = 0; i < tuanHocStr.length; i++) {
+                    if (i >= 10) {
+                        String tuanHoc1 = '1' + tuanHocStr[i];
+                        if (sttTuanHienTai.equalsIgnoreCase(tuanHoc1) && Integer.toString(toDay).equalsIgnoreCase(tt.getThu())) {
+                            String tenMH = tt.getTenMH();
+                            String tietBD = tt.getTietBD();
+                            String soTiet = tt.getSoTiet();
+                            String phong = tt.getPhong();
+                            String nha = tt.getNha();
+                            String giangVien = tt.getGiangVien();
+                            timeTableToDay = new TimeTable(tenMH, tietBD, soTiet, phong, nha, giangVien);
+                            timeTableTodayList.add(timeTableToDay);
+                        }
+                    } else {
+                        String tuanHoc1 = tuanHocStr[i];
+                        if (sttTuanHienTai.equalsIgnoreCase(tuanHoc1) && Integer.toString(toDay).equalsIgnoreCase(tt.getThu())) {
+                            String tenMH = tt.getTenMH();
+                            String tietBD = tt.getTietBD();
+                            String soTiet = tt.getSoTiet();
+                            String phong = tt.getPhong();
+                            String nha = tt.getNha();
+                            String giangVien = tt.getGiangVien();
+                            timeTableToDay = new TimeTable(tenMH, tietBD, soTiet, phong, nha, giangVien);
+                            timeTableTodayList.add(timeTableToDay);
+                        }
+                    } 
+                    
+                }
+                
             
-        } 
-        return timeTableToday;
+        }
+        return timeTableTodayList;
     }
+    
+    
     public static void main(String[] args) throws Exception {
         TimeTableDAO dao = new TimeTableDAO();
-        ArrayList<TimeTable> timeTableList = dao.getTimeTable("B15DCCN209");
+        ArrayList<TimeTable> timeTableList = dao.getTimeTable("B15DCCN660");
         for (TimeTable tt: timeTableList){
-            System.out.println(tt.getTenMH() + " " + tt.getSoTC());
+            System.out.println(tt.getTenMH() + " " + tt.getThu()+ " " + tt.getTuanHoc());
         }        
+        int j = 1;
+        String thongBaoLichHoc = "";
+        ArrayList<TimeTable> timeTableToday = dao.getTimeTableInToday(timeTableList, 20172);
+        ArrayList<TimeTable> timeTableToday1 = dao.bubbleSortTimeTable(timeTableToday);
+        for (int i = 0; i < timeTableToday1.size(); i++) {
+            TimeTable tt = timeTableToday1.get(i);
+            thongBaoLichHoc += "<p>" +j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
+            j ++;
+        }   
+        System.out.println(thongBaoLichHoc);
     } 
 }

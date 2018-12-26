@@ -9,6 +9,7 @@ package Servlet;
 import DAO.LichThiDAO;
 import controller.LoginControl;
 import DAO.StudentDAO;
+import DAO.TimeTableDAO;
 import controller.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +17,7 @@ import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Student;
+import model.TimeTable;
 
 /**
  *
@@ -31,6 +34,7 @@ import model.Student;
 public class LoginServlet extends HttpServlet {
     StudentDAO studentDAO = new StudentDAO();
     LichThiDAO lichThiDao = new LichThiDAO();
+    TimeTableDAO timeTableDao = new TimeTableDAO();
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,9 +49,9 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        //String result = "Đăng nhập sai :(";
         String url = "";
-        String thongBao = "";
+        String thongBaoLichThi = "";
+        String thongBaoLichHoc = "";
         HttpSession session = request.getSession();
         
         try {
@@ -69,26 +73,51 @@ public class LoginServlet extends HttpServlet {
                 System.out.println(email);
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
-                    
-                thongBao = lichThiDao.thongBaoLichThi(username);
-                System.out.println(thongBao);
-                session.setAttribute("thongBao", thongBao);
-                if(!thongBao.equalsIgnoreCase("Chúc bạn một ngày tốt lành!")) {
+                //Báo lịch thi    
+                thongBaoLichThi = lichThiDao.thongBaoLichThi(username);
+                session.setAttribute("thongBao", thongBaoLichThi);
+                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!")) {
                     SendMail sm = new SendMail();
-                    sm.sendMail(email, "Thông báo lịch thi", thongBao);
+                    sm.sendMail(email, "Test's Today", thongBaoLichThi);
                 }
+                //Báo TKB
+                ArrayList<TimeTable> timeTableList = timeTableDao.getTimeTable(username);
+                ArrayList<TimeTable> timeTableToday = timeTableDao.getTimeTableInToday(timeTableList, 20172);
+                ArrayList<TimeTable> timeTableToday1 = timeTableDao.bubbleSortTimeTable(timeTableToday);
+                int j = 1;
+                for (int i = 0; i < timeTableToday1.size(); i++) {
+                    TimeTable tt = timeTableToday1.get(i);
+                    thongBaoLichHoc += "<p>" +j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
+                    j ++;
+                }
+                SendMail sm = new SendMail();
+                sm.sendMail(email, "Class's Today", thongBaoLichHoc);
+                
             }
+            // Trường hợp web trường đang trong thời gian đăng ký tín chỉ (Có capcha) 
             else if(studentDAO.checkLoginDuPhong(username,password) == true){
                 Student student = studentDAO.getStudent(username);
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
                 String email = student.getEmail();
-                thongBao = lichThiDao.thongBaoLichThi(username);
-                session.setAttribute("thongBao", thongBao);
+                thongBaoLichThi = lichThiDao.thongBaoLichThi(username);
+                session.setAttribute("thongBao", thongBaoLichThi);
+                if (!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!")) {
+                    SendMail sm = new SendMail();
+                    sm.sendMail(email, "Test's Today", thongBaoLichThi);
+                }
                 
-
-//                RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-//                dispatcher.forward(request, response);
+                ArrayList<TimeTable> timeTableList = timeTableDao.getTimeTable(username);
+                ArrayList<TimeTable> timeTableToday = timeTableDao.getTimeTableInToday(timeTableList, 20172);
+                ArrayList<TimeTable> timeTableToday1 = timeTableDao.bubbleSortTimeTable(timeTableToday);
+                int j = 1;
+                for (int i = 0; i < timeTableToday1.size(); i++) {
+                    TimeTable tt = timeTableToday1.get(i);
+                    thongBaoLichHoc += "<p>" + j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
+                    j++;
+                }
+                SendMail sm = new SendMail();
+                sm.sendMail(email, "Class's Today", thongBaoLichHoc);
             }
             else{
                 System.out.println("false");
@@ -96,8 +125,6 @@ public class LoginServlet extends HttpServlet {
                 String errorMessage = "Tên đăng nhập hoặc mật khẩu không chính xác";
  
                 request.setAttribute("errorMessage", errorMessage);
-//                RequestDispatcher dispatcher =  request.getRequestDispatcher(url);
-//                dispatcher.forward(request, response);
             }
             
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);

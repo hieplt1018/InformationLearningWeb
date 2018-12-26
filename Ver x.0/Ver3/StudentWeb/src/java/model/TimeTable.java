@@ -38,6 +38,15 @@ public class TimeTable {
         this.giangVien = giangVien;
     }
 
+    public TimeTable(String tenMH, String tietBD, String soTiet, String phong, String nha, String giangVien) {
+        this.tenMH = tenMH;
+        this.tietBD = tietBD;
+        this.soTiet = soTiet;
+        this.phong = phong;
+        this.nha = nha;
+        this.giangVien = giangVien;
+    }
+
     public TimeTable(int maHK, int soTC, String maSV, String maMH, String maNhom, String tenMH) {
         this.maHK = maHK;
         this.soTC = soTC;

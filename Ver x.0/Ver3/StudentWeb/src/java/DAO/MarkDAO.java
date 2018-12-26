@@ -31,7 +31,7 @@ public class MarkDAO {
         String sql = "SELECT * FROM tbldiem WHERE MaSV = '" + maSV + "' AND MaHK = '" + maHK + "'";
         System.out.println(sql);
         try {
-            rs = connectdb.getStatement().executeQuery(sql);;
+            rs = connectdb.getStatement().executeQuery(sql);
             Mark mark = null;
             while (rs.next()) {
                 String maMH = rs.getString("MaMH");
