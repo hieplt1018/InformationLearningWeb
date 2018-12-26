@@ -42,6 +42,7 @@ public class StudentDAO {
                 student.setDateOfBirth(rs.getString("NgaySinh"));
                 student.setPlaceOfBirth(rs.getString("NoiSinh"));
                 student.setSex(rs.getString("GioiTinh"));
+                student.setEmail(rs.getString("Email"));
             }
             
         } catch (Exception e) {
@@ -50,10 +51,33 @@ public class StudentDAO {
         return student;  
     }
     
+    public void updatePassword(String studentID, String password) throws Exception {
+        String strSQL = "UPDATE tblSinhVien SET Password = '" + password + "' where MaSV = '" + studentID + "'";
+        rs = connectdb.getStatement().executeQuery(strSQL);
+    }
+    
+    public boolean checkLoginDuPhong(String studentID, String password) {
+        Student student = new Student();
+        String strSQL = "select Password from tblSinhVien where MaSV = '" + studentID + "'";
+        try {
+            rs = connectdb.getStatement().executeQuery(strSQL);
+            while (rs.next()) {
+                if(password.equals(rs.getString("Password"))){
+                    return true;
+                } ;
+            }
+            
+        } catch (Exception ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     public static void main(String[] args) throws Exception {
         StudentDAO dao = new StudentDAO();
         Student sv = dao.getStudent("B15DCCN209");
         System.out.println(sv.getLastName() + sv.getFirstName());
+        System.out.println(dao.checkLoginDuPhong("B15DCCN660", "vuong19971015"));
         
     }
 }

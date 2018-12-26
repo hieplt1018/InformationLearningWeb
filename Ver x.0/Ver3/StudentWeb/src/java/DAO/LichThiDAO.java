@@ -6,9 +6,11 @@
 package DAO;
 
 import connectDB.connectDB;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import model.LichThi;
 
@@ -22,6 +24,9 @@ public class LichThiDAO {
     PreparedStatement ps;
     ResultSet rs;
 
+    long miliSeconds = System.currentTimeMillis();
+    Date toDay = new Date(miliSeconds);
+    
     public LichThiDAO() {
         if(con == null)
          con= new connectDB();
@@ -69,11 +74,30 @@ public class LichThiDAO {
         }
         return lichThiList2;
     }
+    
+    public String thongBaoLichThi(String username){
+        LichThiDAO lichThiDao = new LichThiDAO();
+        ArrayList<LichThi> lichThi = lichThiDao.getLichThi(username);
+        String thongBao = "";
+        for (LichThi monThi : lichThi) {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            String strToday = formatter.format(toDay);           // Chuyen Date thanh String
+            if (monThi.getNgayThi().equals(strToday)) {
+                thongBao = "Hôm nay thi môn: " + monThi.getTenMH() + " vào lúc " + monThi.getGioBD() + " tại phòng " + monThi.getPhongThi() + ". Chúc bạn may mắn!";
+                break;
+            } else {
+                thongBao = "Chúc bạn một ngày tốt lành!";
+            }
+        }
+        return thongBao;
+    }
+    
     public static void main(String[] args) {
         LichThiDAO dAO = new LichThiDAO();
         ArrayList<LichThi> lt = dAO.getLichThi("B15DCCN660");
         for(LichThi l:lt){
             System.out.println(l.getTenMH()+ " "+ l.getNgayThi() +" "+l.getPhongThi() +" " + l.getMaNhom());
         }
+        System.out.println(dAO.thongBaoLichThi("B15DCCN660"));
     }
 }

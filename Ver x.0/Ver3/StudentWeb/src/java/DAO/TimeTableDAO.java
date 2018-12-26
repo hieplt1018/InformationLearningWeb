@@ -60,12 +60,14 @@ public class TimeTableDAO {
     }    
     
     public boolean checkTimeTable(TimeTable timeTable) {
-        
         return true;
     }
     
     public ArrayList<TimeTable> getTimeTableInToday(ArrayList<TimeTable> timeTable) {
         ArrayList<TimeTable> timeTableToday = new ArrayList<>();
+        for (TimeTable tt: timeTable){
+            
+        } 
         return timeTableToday;
     }
     public static void main(String[] args) throws Exception {

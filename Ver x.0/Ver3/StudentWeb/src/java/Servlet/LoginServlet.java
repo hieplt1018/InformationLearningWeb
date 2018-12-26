@@ -9,20 +9,19 @@ package Servlet;
 import DAO.LichThiDAO;
 import controller.LoginControl;
 import DAO.StudentDAO;
+import controller.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.CookieHandler;
 import java.net.CookieManager;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.LichThi;
 import model.Student;
 
 /**
@@ -31,8 +30,6 @@ import model.Student;
  */
 public class LoginServlet extends HttpServlet {
     StudentDAO studentDAO = new StudentDAO();
-    long miliSeconds = System.currentTimeMillis();
-    Date toDay = new Date(miliSeconds);
     LichThiDAO lichThiDao = new LichThiDAO();
     
     @Override
@@ -46,12 +43,12 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out1 = response.getWriter();
    
         String username = request.getParameter("username");
-        System.out.println(username);
         String password = request.getParameter("password");
+        
         //String result = "Đăng nhập sai :(";
         String url = "";
+        String thongBao = "";
         HttpSession session = request.getSession();
-        
         
         try {
             String mainQLDT = "http://qldt.ptit.edu.vn/";
@@ -63,30 +60,35 @@ public class LoginServlet extends HttpServlet {
             http.GetCookie(mainQLDT);
             String postParams = http.getFormParams(username, password);
             http.sendPost(defaultQLDT, postParams);
-//            if(http.checkLogin(username)) {
-            if(http.checkLoginTamThoi(username) == true){
-                System.out.println("true");
-                Student student = studentDAO.getStudent(username);out1.print(studentDAO.getStudent(username));
+            System.out.println(username + " " + password);
+            
+            if(http.checkLogin(username)) {
+                studentDAO.updatePassword(username, password);
+                Student student = studentDAO.getStudent(username);
+                String email = student.getEmail();
+                System.out.println(email);
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
-                
-                ArrayList<LichThi> lichThi = lichThiDao.getLichThi(username);
-                String thongBao = "";
-                for (LichThi monThi : lichThi) {
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                    String strToday = formatter.format(toDay);           // Chuyen Date thanh String
-                    if (monThi.getNgayThi().equals(strToday)) {
-                        thongBao = "Hôm nay thi môn: " + monThi.getTenMH() + " vào lúc " + monThi.getGioBD() + " tại phòng " + monThi.getPhongThi() + ". Chúc bạn may mắn!";
-                        break;
-                    }else {
-                        thongBao = "Chào mừng tới trang web của chúng tôi.";
-                    }
-                    System.out.println(thongBao);
+                    
+                thongBao = lichThiDao.thongBaoLichThi(username);
+                System.out.println(thongBao);
+                session.setAttribute("thongBao", thongBao);
+                if(!thongBao.equalsIgnoreCase("Chúc bạn một ngày tốt lành!")) {
+                    SendMail sm = new SendMail();
+                    sm.sendMail(email, "Thông báo lịch thi", thongBao);
                 }
+            }
+            else if(studentDAO.checkLoginDuPhong(username,password) == true){
+                Student student = studentDAO.getStudent(username);
+                url = "./page/index.jsp";
+                session.setAttribute("student", student);
+                String email = student.getEmail();
+                thongBao = lichThiDao.thongBaoLichThi(username);
                 session.setAttribute("thongBao", thongBao);
                 
-                RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-                dispatcher.forward(request, response);
+
+//                RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+//                dispatcher.forward(request, response);
             }
             else{
                 System.out.println("false");
@@ -94,16 +96,13 @@ public class LoginServlet extends HttpServlet {
                 String errorMessage = "Tên đăng nhập hoặc mật khẩu không chính xác";
  
                 request.setAttribute("errorMessage", errorMessage);
-                RequestDispatcher dispatcher =  request.getRequestDispatcher(url);
-                dispatcher.forward(request, response);
-//                dispatcher.include(request, response);
-                
+//                RequestDispatcher dispatcher =  request.getRequestDispatcher(url);
+//                dispatcher.forward(request, response);
             }
             
-//            RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-//            rd.forward(request, response);
+            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+            dispatcher.forward(request, response);
         } catch (Exception ex) {
-            
             out1.println("<h1> WRONG " + request.getContextPath() + "</h1>");
             out1.println("<h1> WRONG " + ex.toString() + "</h1>");
         }

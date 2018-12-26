@@ -10,7 +10,7 @@ package model;
  * @author admin
  */
 public class Student {
-    private String sId, sClass,lastName, firstName, dateOfBirth, sex, placeOfBirth, password;  
+    private String sId, sClass,lastName, firstName, dateOfBirth, sex, placeOfBirth, password, email;  
 
     public Student() {
     }
@@ -32,6 +32,14 @@ public class Student {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public String getsId() {
         return sId;
     }
