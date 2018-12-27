@@ -83,13 +83,12 @@ public class LoginServlet extends HttpServlet {
                 //Báo TKB
                 ArrayList<TimeTable> timeTableList = timeTableDao.getTimeTable(username);
                 ArrayList<TimeTable> timeTableToday = timeTableDao.getTimeTableInToday(timeTableList, 20172);
-                ArrayList<TimeTable> timeTableToday1 = timeTableDao.bubbleSortTimeTable(timeTableToday);
                 int j = 1;
-                for (int i = 0; i < timeTableToday1.size(); i++) {
-                    TimeTable tt = timeTableToday1.get(i);
+                for (int i = 0; i < timeTableToday.size(); i++) {
+                    TimeTable tt = timeTableToday.get(i);
                     thongBaoLichHoc += "<p>" +j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
                     j ++;
-                }
+                } 
                 SendMail sm = new SendMail();
                 sm.sendMail(email, "Class's Today", thongBaoLichHoc);
                 
@@ -109,10 +108,9 @@ public class LoginServlet extends HttpServlet {
                 
                 ArrayList<TimeTable> timeTableList = timeTableDao.getTimeTable(username);
                 ArrayList<TimeTable> timeTableToday = timeTableDao.getTimeTableInToday(timeTableList, 20172);
-                ArrayList<TimeTable> timeTableToday1 = timeTableDao.bubbleSortTimeTable(timeTableToday);
                 int j = 1;
-                for (int i = 0; i < timeTableToday1.size(); i++) {
-                    TimeTable tt = timeTableToday1.get(i);
+                for (int i = 0; i < timeTableToday.size(); i++) {
+                    TimeTable tt = timeTableToday.get(i);
                     thongBaoLichHoc += "<p>" + j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
                     j++;
                 }
@@ -123,7 +121,6 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("false");
                 url = "./page/login.jsp";
                 String errorMessage = "Tên đăng nhập hoặc mật khẩu không chính xác";
- 
                 request.setAttribute("errorMessage", errorMessage);
             }
             

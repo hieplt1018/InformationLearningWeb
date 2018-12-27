@@ -25,6 +25,8 @@
                                     <li>Thông tin sinh viên</li>
                                 <%} else if (jsp.equals("lichthi.jsp")) {%>
                                     <li>Lịch thi</li>
+                                <%} else if (jsp.equals("login.jsp")) {%>
+                                    <li>Đăng nhập</li>    
                                 <%}%>    
                         </ul>
                         <h1>
@@ -36,6 +38,8 @@
                                 Thông tin sinh viên
                             <%} else if (jsp.equals("lichthi.jsp")) {%>
                                 Lịch thi
+                            <%} else if (jsp.equals("login.jsp")) {%>
+                                Đăng nhập 
                             <%}%>
                         </h1>
                     </div>

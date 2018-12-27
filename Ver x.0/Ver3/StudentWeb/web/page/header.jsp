@@ -69,7 +69,7 @@
                             <li><a href="./index.jsp">Trang chủ</a></li>
                             <li><a href="#">Tin tức</a></li>
                             <li><a href="${pageContext.request.contextPath}/page/timeTable.jsp">Thời khóa biểu</a></li>
-                            <li><a href="${pageContext.request.contextPath}/page/mark.jsp"">Điểm</a></li>
+                            <li><a href="${pageContext.request.contextPath}/page/mark.jsp">Điểm</a></li>
                             <li><a href="#">Lịch thi</a></li>
                             <li><a href="${pageContext.request.contextPath}/page/logout.jsp">Đăng xuất</a></li>
                         </ul>

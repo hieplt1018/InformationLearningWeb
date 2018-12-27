@@ -94,7 +94,7 @@ public class LichThiDAO {
     
     public static void main(String[] args) {
         LichThiDAO dAO = new LichThiDAO();
-        ArrayList<LichThi> lt = dAO.getLichThi("B15DCCN660");
+        ArrayList<LichThi> lt = dAO.getLichThi("B15DCCN021");
         for(LichThi l:lt){
             System.out.println(l.getTenMH()+ " "+ l.getNgayThi() +" "+l.getPhongThi() +" " + l.getMaNhom());
         }
