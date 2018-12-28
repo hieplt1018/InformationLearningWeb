@@ -37,23 +37,12 @@
         
         <script>  
             var content = document.getElementById('thongBao').innerHTML;
-            if (content === "Chúc bạn một ngày tốt lành!") {
-                swal({
-                   title: "",
-                   text: content}
-                );
-            }
-            else if(content != "Chúc bạn một ngày tốt lành!" && content != "") {
+            if(content != "Chúc bạn một ngày tốt lành!" && content != "") {
                 swal({
                    title: "Lịch Thi",
                    text: content}
                 );
             } else {
-                swal({
-                    title: "Cố lên!",
-                    text: "Không gì là không thể!",
-                    icon: "success",
-                });
             }
         </script>
         

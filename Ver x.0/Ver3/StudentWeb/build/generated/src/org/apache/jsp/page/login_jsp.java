@@ -83,6 +83,11 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "banner.jsp", out, false);
       out.write("\r\n");
+      out.write("        ");
+
+            Object error = request.getAttribute("errorMessage");
+        
+      out.write("\r\n");
       out.write("        <div class=\"section\">\r\n");
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"col-md-6\">\r\n");
@@ -92,17 +97,30 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("/LoginServlet\"  method=\"post\">\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
       out.write("                                <label for=\"exampleInputEmail1\">Tên đăng nhập</label>\r\n");
-      out.write("                                <input name=\"username\" type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" value=\"B15DCCN660\" required autofocus>\r\n");
+      out.write("                                <input name=\"username\" type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Nhập Mã Sinh Viên\" value=\"\" required autofocus>\r\n");
       out.write("                                <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your account with anyone else.</small>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
       out.write("                                <label for=\"exampleInputPassword1\">Mật khẩu</label>\r\n");
-      out.write("                                <input name=\"password\" type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\" value=\"vuong19971015\" required>\r\n");
+      out.write("                                <input name=\"password\" type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Mật khẩu\" value=\"\" required>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"form-check\">\r\n");
       out.write("                                <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\r\n");
       out.write("                                <label class=\"form-check-label\" for=\"exampleCheck1\">Remember me</label>\r\n");
       out.write("                            </div>\r\n");
+      out.write("                            ");
+
+                                if (error != null) {
+      out.write("\r\n");
+      out.write("                                    <div style =\"color:tomato; margin-bottom: 5px;\">\r\n");
+      out.write("                                        ");
+      out.print(error);
+      out.write("\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                ");
+}
+                            
+      out.write("\r\n");
       out.write("                            <button type=\"submit\" class=\"btn btn-primary\">Đăng nhập</button>\r\n");
       out.write("                        </form>\r\n");
       out.write("                    </div>\r\n");

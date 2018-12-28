@@ -60,6 +60,10 @@ public class DateControl {
         }
     }
     
+    public String getToday() {
+        String day = new SimpleDateFormat("MMMMM d, yyyy").format(date);
+        return day;
+    }
     public static void main(String[] args) {
         DateControl datectr = new DateControl();
         System.out.println(datectr.chuyenDoiThuTrongTuan());

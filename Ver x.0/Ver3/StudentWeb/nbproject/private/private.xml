@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Nam%20Anh/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/src/java/controller/SendMail.java</file>
-            <file>file:/C:/Users/Nam%20Anh/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/src/java/Servlet/LoginServlet.java</file>
-            <file>file:/C:/Users/Nam%20Anh/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/web/page/banner.jsp</file>
-            <file>file:/C:/Users/Nam%20Anh/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/web/page/header.jsp</file>
-            <file>file:/C:/Users/Nam%20Anh/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/web/page/login.jsp</file>
-            <file>file:/C:/Users/Nam%20Anh/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/src/java/DAO/LichThiDAO.java</file>
-            <file>file:/C:/Users/Nam%20Anh/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/web/page/logout.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/src/java/connectDB/connectDB.java</file>
+            <file>file:/C:/Users/Admin/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/src/java/controller/NewsUpdateControl.java</file>
+            <file>file:/C:/Users/Admin/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/web/page/contentIndex.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/StudentWeb/Ver%20x.0/Ver3/StudentWeb/web/page/css/style.css</file>
         </group>
     </open-files>
 </project-private>

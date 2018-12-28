@@ -642,10 +642,10 @@ textarea.input {
 /*----------------------------*\
         post thumb
 \*----------------------------*/
-.post.post-thumb {
+.post {
     position: relative;
 }
-.post.post-thumb .post-img:after {
+.post .post-img:after {
     content: '';
     position: absolute;
     left: 0;
@@ -655,20 +655,21 @@ textarea.input {
     background: -webkit-gradient(linear, left bottom, left top, from(rgba(33, 38, 49, 0.3)), to(transparent));
     background: linear-gradient(to top, rgba(33, 38, 49, 0.3) 0%, transparent 100%);
 }
-.post.post-thumb .post-body {
-    position: absolute;
+.post .post-body {
+    position: relative;
     bottom: 0px;
     padding: 20px 15px;
+    background-color: #fff;
 }
-.post.post-thumb .post-meta .post-date {
+.post .post-meta .post-date {
     color: #eceef2;
 }
-.post.post-thumb .post-title {
+.post .post-title {
     font-size: 22px;
 }
-.post.post-thumb .post-title > a {
+/*.post .post-title > a {
     color: #FFF;
-}
+}*/
 /*----------------------------*\
         post widget
 \*----------------------------*/
