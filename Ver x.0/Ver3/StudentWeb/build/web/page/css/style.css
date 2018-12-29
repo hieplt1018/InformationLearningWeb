@@ -171,9 +171,7 @@ textarea.input {
 .left {
     margin-left: 20px;
 }
-.section {
-    padding-top: 40px;
-}
+
 .section.section-grey {
     background-color: #fbfbfd;
     border-bottom: 1px solid #eceef2;
@@ -547,6 +545,10 @@ textarea.input {
     content: '/';
     display: inline-block;
     margin: 0px 10px;
+}
+
+#hot {
+    display: inline-block;
 }
 /*=========================================================
         POST
@@ -1022,13 +1024,13 @@ textarea.input {
 /*=========================================================
         RESPONSIVE
 ===========================================================*/
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1207px) {
     #nav .nav-menu {
         display: none;
     }
 }
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 720px) {
     #login{
         display: none;
     }
@@ -1053,6 +1055,18 @@ textarea.input {
     }
     .post.post-row .post-body p {
         display:none;
+    }
+}
+
+@media only screen and (max-width: 545px) {
+    #logo1 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 545px) {
+    #logo2  {
+        display: none;
     }
 }
 

@@ -23,8 +23,8 @@
                     <div class="container">
                         <!-- logo -->
                         <div class="nav-logo">
-                            <a href="${pageContext.request.contextPath}/page/index.jsp" class="logo">HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG <br/></a>
-                            
+                            <a href="${pageContext.request.contextPath}/page/index.jsp" class="logo" id="logo1">HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG</a>
+                            <a href="${pageContext.request.contextPath}/page/index.jsp" class="logo" id="logo2" >PTIT </a>
                         </div>
                         <!-- /logo -->
 

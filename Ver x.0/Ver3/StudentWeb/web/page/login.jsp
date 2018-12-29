@@ -25,6 +25,7 @@
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/login.css"/>
         <!-- Custom Js -->
         <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>;
+        <script src="${pageContext.request.contextPath}/page/js/bootstrap.min.js"></script>
         
     </head>
     <body>
@@ -65,5 +66,6 @@
             </div>
         </div>
         <jsp:include page="footer.jsp"></jsp:include>
+        <script src="${pageContext.request.contextPath}/page/js/main.js"></script>
     </body>
 </html>

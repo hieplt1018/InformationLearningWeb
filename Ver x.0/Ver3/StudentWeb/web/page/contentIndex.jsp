@@ -19,11 +19,13 @@
             ArrayList<News> newsTTKTList = newsCtr.getNewsTTKT();
             DateControl dateCtr = new DateControl();
             String toDay = dateCtr.getToday();
-            String thongBao = "Chúc bạn một ngày tốt lành!";
+            String thongBao = "";
             if (session.getAttribute("email") != null) { 
                 thongBao = (String) session.getAttribute("email");
             } else if (session.getAttribute("thongBao") != null) {
                 thongBao = (String) session.getAttribute("thongBao");
+            } else {
+                thongBao = "";
             }
         %>
         <!-- section -->
@@ -33,7 +35,8 @@
                 <!-- row -->
                     <!-- post -->
                     <div class="row">
-                        <marquee id="thongBao"><%=thongBao%></marquee>             
+                        <marquee id="thongBao"><%=thongBao%></marquee>     
+                        <marquee id="hot"><span style=\"color:red; text-transform: uppercase\">HOT!!! </span> <a href=\"registerEmail.jsp\"> Click để đăng ký nhận thông báo lịch học, lịch thi, tin tức qua email tại đây!!!!</a></marquee>      
                     <div class="col-md-6">
                         <div class="post">
                             <a class="post-img" href="<%=newsListPost.get(0).getUrl()%>"><img src="<%=newsListPost.get(0).getImage()%>" alt=""></a>

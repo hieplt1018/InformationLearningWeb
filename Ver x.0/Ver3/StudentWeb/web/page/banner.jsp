@@ -27,6 +27,8 @@
                                     <li>Lịch thi</li>
                                 <%} else if (jsp.equals("login.jsp")) {%>
                                     <li>Đăng nhập</li>    
+                                <%} else if (jsp.equals("registerEmail.jsp")) {%>
+                                    <li>Đăng kí Email</li>    
                                 <%}%>    
                         </ul>
                         <h1>
@@ -40,7 +42,9 @@
                                 Lịch thi
                             <%} else if (jsp.equals("login.jsp")) {%>
                                 Đăng nhập 
-                            <%}%>
+                            <%}else if (jsp.equals("registerEmail.jsp")) {%>
+                                <li>Đăng kí Email</li>    
+                            <%}%> 
                         </h1>
                     </div>
                 </div>
