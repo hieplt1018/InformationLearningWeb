@@ -19,31 +19,21 @@
             ArrayList<News> newsTTKTList = newsCtr.getNewsTTKT();
             DateControl dateCtr = new DateControl();
             String toDay = dateCtr.getToday();
-            if(session.getAttribute("thongBao") != null ) {
-                String thongBao = (String) session.getAttribute("thongBao");
+            String thongBao = "Chúc bạn một ngày tốt lành!";
+            if (session.getAttribute("email") != null) { 
+                thongBao = (String) session.getAttribute("email");
+            } else if (session.getAttribute("thongBao") != null) {
+                thongBao = (String) session.getAttribute("thongBao");
+            }
         %>
         <!-- section -->
-        
         <div class="section">
             <!-- container -->
             <div class="container">
                 <!-- row -->
                     <!-- post -->
                     <div class="row">
-                        <marquee id="thongBao"><%=thongBao%></marquee>               
-        <%
-            } else {
-        %>
-        <div class="section">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <!-- post -->
-                <div class="row">
-                    <marquee id="thongBao">Chúc bạn một ngày tốt lành!</marquee> 
-    <%
-            }
-    %>
+                        <marquee id="thongBao"><%=thongBao%></marquee>             
                     <div class="col-md-6">
                         <div class="post">
                             <a class="post-img" href="<%=newsListPost.get(0).getUrl()%>"><img src="<%=newsListPost.get(0).getImage()%>" alt=""></a>

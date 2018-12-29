@@ -56,6 +56,13 @@ public class StudentDAO {
         rs = connectdb.getStatement().executeQuery(strSQL);
     }
     
+    public void updateEmail(String studentID, String email) throws Exception {
+        String strSQL = "UPDATE tblSinhVien SET Email = '" + email + "' where MaSV = '" + studentID + "'";
+        System.out.println(strSQL);
+        rs = connectdb.getStatement().executeQuery(strSQL);
+        System.out.println("Thêm Email thành công!");
+    }
+    
     public boolean checkLoginDuPhong(String studentID, String password) {
         Student student = new Student();
         String strSQL = "select Password from tblSinhVien where MaSV = '" + studentID + "'";

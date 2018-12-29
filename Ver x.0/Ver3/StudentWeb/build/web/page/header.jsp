@@ -73,25 +73,32 @@
                                         $('.login-nav-side').remove();
                                     });
                                 </script>
-                                <li id="welcome-nav-aside">Welcome <%=student.getLastName()%> <%=student.getFirstName()%></li>
+                                <li class="welcome-nav-aside">Welcome <%=student.getLastName()%> <%=student.getFirstName()%></li>
                                 <li><a href="./index.jsp">Trang chủ</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/timeTable.jsp">Thời khóa biểu</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/mark.jsp">Điểm</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/lichthi.jsp">Lịch thi</a></li>
-                                <li class="cat-3"><a href="${pageContext.request.contextPath}/page/studentInfo.jsp">Thông tin cá nhân</a></li>
+                                <li><a href="${pageContext.request.contextPath}/page/studentInfo.jsp">Thông tin cá nhân</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/logout.jsp">Đăng xuất</a></li>
+                                <!-- Đăng ký nhận tin -->
+                        </ul>
+                    </div>
+                    <div class="section-row nav-aside-menu">
+                        <a class="welcome-nav-aside"href="${pageContext.request.contextPath}/page/registerEmail.jsp">Đăng ký nhận thông báo lịch học, lịch thi, tin tức</a>
+                    </div>
                             <% } else { %>
                                 <li><a href="${pageContext.request.contextPath}/page/timeTable.jsp">Thời khóa biểu</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/mark.jsp">Điểm</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/lichthi.jsp">Lịch thi</a></li>
                                 <li class="cat-3"><a href="${pageContext.request.contextPath}/page/studentInfo.jsp">Thông tin cá nhân</a></li>
                                 <li><a class=".login-nav-side" href="${pageContext.request.contextPath}/page/login.jsp">Đăng nhập</a></li>
-                            <% }%>
-                            
                         </ul>
-                    </div>
+                    </div>      
+                            <% }%>
+                        
                     <!-- /nav -->
-
+                    
+                    
                     <!-- social links -->
                     <div class="section-row">
                         <h3>Follow us</h3>

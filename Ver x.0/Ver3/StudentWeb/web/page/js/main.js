@@ -87,5 +87,5 @@
 	});
 
 	setStickyPos();
-
+ 
 })(jQuery);

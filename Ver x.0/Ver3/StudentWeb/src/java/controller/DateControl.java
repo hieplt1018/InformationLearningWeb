@@ -23,7 +23,6 @@ public class DateControl {
     
     
     public int getSttTuan(String date) {
-        int sttTuan = 1;
         String[] arr = date.split("\\/");
         int day = Integer.parseInt(arr[0]);
         int month = Integer.parseInt(arr[1]);

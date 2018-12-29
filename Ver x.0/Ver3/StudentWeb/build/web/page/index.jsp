@@ -35,16 +35,6 @@
 
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
         <script src="${pageContext.request.contextPath}/page/js/main.js"></script>
-        <script>  
-            var content = document.getElementById('thongBao').innerHTML;
-            if(content != "Chúc bạn một ngày tốt lành!" && content != "") {
-                swal({
-                   title: "Lịch Thi",
-                   text: content}
-                );
-            } else {
-            }
-        </script>
-        
+        <script src="${pageContext.request.contextPath}/page/js/index.js"></script>
     </body>
 </html>

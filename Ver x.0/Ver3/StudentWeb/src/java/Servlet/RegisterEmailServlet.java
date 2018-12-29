@@ -5,43 +5,47 @@
  */
 package Servlet;
 
-import DAO.TimeTableDAO;
+import DAO.StudentDAO;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.TimeTable;
 
 /**
  *
- * @author Nam Anh
+ * @author Admin
  */
-public class TimeTableServlet extends HttpServlet {
-    TimeTableDAO timeTableDao = new TimeTableDAO();
+public class RegisterEmailServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String maSV = request.getParameter("maSV");
+        StudentDAO studentDAO = new StudentDAO();
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        System.out.println(username + ": " + email);
+        String url = "./page/index.jsp";
+        String thongBaoEmail = null;
         HttpSession session = request.getSession();
-        String url = "";
         try {
-            if(maSV != null) {
-                ArrayList<TimeTable> timeTable = timeTableDao.getTimeTable(maSV);
-                session.setAttribute("timeTable", timeTable);
-                url = "./page/index.jsp";
+            if(!email.equalsIgnoreCase("")){
+                studentDAO.updateEmail(username, email);
+                thongBaoEmail = "Bạn đã đăng ký thành công nhận tin thành công tại email: " + email;
             } else {
-                url = "./page/index.jsp";
+                thongBaoEmail = "Đăng ký không thành công. Vui lòng liên hệ với admin!";
             }
+            session.setAttribute("email", thongBaoEmail);
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);
             dispatcher.forward(request, response);
         } catch (Exception ex) {
-            System.out.println("Error in TImeTableServlet");
+            Logger.getLogger(RegisterEmailServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     @Override
@@ -50,6 +54,11 @@ public class TimeTableServlet extends HttpServlet {
         doGet(request, response);
     }
 
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

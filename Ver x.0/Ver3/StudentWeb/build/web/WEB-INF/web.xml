@@ -4,10 +4,13 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Servlet.LoginServlet</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>MarksServlet</servlet-name>
         <servlet-class>Servlet.MarksServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterEmailServlet</servlet-name>
+        <servlet-class>Servlet.RegisterEmailServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -16,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>MarksServlet</servlet-name>
         <url-pattern>/MarksServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterEmailServlet</servlet-name>
+        <url-pattern>/RegisterEmailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
