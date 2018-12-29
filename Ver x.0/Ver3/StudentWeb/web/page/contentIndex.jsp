@@ -12,7 +12,7 @@
 
         <%
             NewsUpdateControl newsCtr = new NewsUpdateControl();
-            newsCtr.start();
+            newsCtr.start(); //Chuyển nó sang admin.jsp để không khởi tạo quá nhiều luồng
             
             ArrayList<News> newsListPost = newsCtr.getNewsPost();
             ArrayList<News> newsGiaoVuList = newsCtr.getNewsGiaoVu();

@@ -15,8 +15,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.CookieHandler;
 import java.net.CookieManager;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -70,15 +68,15 @@ public class LoginServlet extends HttpServlet {
                 studentDAO.updatePassword(username, password);
                 Student student = studentDAO.getStudent(username);
                 String email = student.getEmail();
-                System.out.println(email);
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
                 //Báo lịch thi    
                 thongBaoLichThi = lichThiDao.thongBaoLichThi(username);
                 session.setAttribute("thongBao", thongBaoLichThi);
-                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!") && !email.equals("")) {
+                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!") && email != null) {
                     SendMail sm = new SendMail();
                     sm.sendMail(email, "Test's Today", thongBaoLichThi);
+                    System.out.println("Đã gửi mail lịch thi!");
                 }
                 //Báo TKB
                 ArrayList<TimeTable> timeTableList = timeTableDao.getTimeTable(username);
@@ -89,12 +87,11 @@ public class LoginServlet extends HttpServlet {
                     thongBaoLichHoc += "<p>" +j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
                     j ++;
                 } 
-                System.out.println("Lấy xong lịch");
-                if(!thongBaoLichHoc.equalsIgnoreCase("") && !email.equalsIgnoreCase("")){
-                    System.out.println("Có lịch học!");
+                System.out.println(thongBaoLichHoc);
+                if(thongBaoLichHoc.equalsIgnoreCase("") != true && email != null){ // Vì email trả về giá trị null nên không so sánh bằng hàm equals được
                     SendMail sm = new SendMail();
                     sm.sendMail(email, "Class's Today", thongBaoLichHoc);
-                    System.out.println("Đã gửi mail!");
+                    System.out.println("Đã gửi mail lịch học!");
                 }
             }
             // Trường hợp web trường đang trong thời gian đăng ký tín chỉ (Có capcha) 
@@ -105,9 +102,10 @@ public class LoginServlet extends HttpServlet {
                 String email = student.getEmail();
                 thongBaoLichThi = lichThiDao.thongBaoLichThi(username);
                 session.setAttribute("thongBao", thongBaoLichThi);
-                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!") && !email.equals("")) {
+                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!") && email != null) {
                     SendMail sm = new SendMail();
                     sm.sendMail(email, "Test's Today", thongBaoLichThi);
+                    System.out.println("Đã gửi mail lịch thi!");
                 }
                 
                 ArrayList<TimeTable> timeTableList = timeTableDao.getTimeTable(username);
@@ -118,9 +116,10 @@ public class LoginServlet extends HttpServlet {
                     thongBaoLichHoc += "<p>" + j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
                     j++;
                 }
-                if(!thongBaoLichHoc.equalsIgnoreCase("") && !email.equalsIgnoreCase("")){
+                if(thongBaoLichHoc.equalsIgnoreCase("") != true && email != null){
                     SendMail sm = new SendMail();
                     sm.sendMail(email, "Class's Today", thongBaoLichHoc);
+                    System.out.println("Đã gửi mail lịch học!");
                 }
             }
             else{

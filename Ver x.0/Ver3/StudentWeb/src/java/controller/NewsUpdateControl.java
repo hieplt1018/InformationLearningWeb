@@ -26,7 +26,7 @@ public class NewsUpdateControl extends Thread{
         ArrayList<News> newsList = null;
         ArrayList<News> newsGiaoVu = null;
         ArrayList<News> newsTTKT = null;
-        int i = 1;
+        int i = 0;
         try {
             while (true) {
                 i++;
