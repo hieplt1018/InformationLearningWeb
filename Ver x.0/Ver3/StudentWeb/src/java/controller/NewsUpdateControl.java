@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.News;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,6 +23,32 @@ import org.jsoup.select.Elements;
 public class NewsUpdateControl extends Thread{
     public void run () {
         NewsUpdateControl newsCtr = new NewsUpdateControl();
+        ArrayList<News> newsList = null;
+        ArrayList<News> newsGiaoVu = null;
+        ArrayList<News> newsTTKT = null;
+        int i = 1;
+        try {
+            while (true) {
+                i++;
+                newsList = newsCtr.getNewsPost();
+                newsGiaoVu = newsCtr.getNewsGiaoVu();
+                newsTTKT = newsCtr.getNewsTTKT();
+                
+                newsTTKT.removeAll(newsTTKT);
+                newsList.removeAll(newsList);
+                newsGiaoVu.removeAll(newsGiaoVu);
+                
+                newsList = newsCtr.getNewsPost();
+                newsGiaoVu = newsCtr.getNewsGiaoVu();
+                newsTTKT = newsCtr.getNewsTTKT();
+                System.out.println("Chạy lần " + i + "!");
+                Thread.sleep(1800000);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(NewsUpdateControl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(NewsUpdateControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public ArrayList<News> getNewsPost() throws IOException {
         ArrayList<News> newsList = new ArrayList<>();

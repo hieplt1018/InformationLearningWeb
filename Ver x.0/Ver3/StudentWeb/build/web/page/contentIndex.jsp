@@ -12,6 +12,8 @@
 
         <%
             NewsUpdateControl newsCtr = new NewsUpdateControl();
+            newsCtr.start();
+            
             ArrayList<News> newsListPost = newsCtr.getNewsPost();
             ArrayList<News> newsGiaoVuList = newsCtr.getNewsGiaoVu();
             ArrayList<News> newsTTKTList = newsCtr.getNewsTTKT();

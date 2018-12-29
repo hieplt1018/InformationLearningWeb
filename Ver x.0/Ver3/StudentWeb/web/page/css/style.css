@@ -29,6 +29,7 @@ RESPONSIVE
 /*----------------------------*\
         typography
 \*----------------------------*/
+
 body {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
@@ -127,18 +128,6 @@ figure.figure-img figcaption {
 textarea.input {
     height: 90px;
     padding: 15px;
-}
-
-#primary-button {
-    padding: 9px 45px;
-    border: none;
-    background-color: #212631;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 13px;
-    color: #fff;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
 }
 
 #primary-button:hover,.primary-button:focus {
@@ -297,10 +286,14 @@ textarea.input {
 }
 .nav-logo .logo {
     line-height: 70px;
+    font-weight: bold;
     display:inline-block;
 }
+.nav-logo a:hover {
+    text-decoration: none;
+}
 .nav-logo .logo > img {
-    width: 100%;
+    width: 50%;
     max-height: 70px;
 }
 /*----------------------------*\
@@ -410,6 +403,9 @@ textarea.input {
     font-size: 22px;
     padding: 0;
 }
+.nav-btns a:hover {
+    text-decoration: none;
+}
 /*----------------------------*\
         nav aside
 \*----------------------------*/
@@ -478,6 +474,9 @@ textarea.input {
     font-size: 22px;
     border-radius: 50%;
     padding: 0;
+}
+#welcome-nav-aside{
+    font-size: 20px;
 }
 /*=========================================================
         HEADER
@@ -1028,6 +1027,16 @@ textarea.input {
         display: none;
     }
 }
+
+@media only screen and (max-width: 660px) {
+    #login{
+        display: none;
+    }
+    #welcome {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .page-header h1 {
         font-size: 28px;
@@ -1046,3 +1055,4 @@ textarea.input {
         display:none;
     }
 }
+

@@ -25,7 +25,7 @@
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/style.css"/>
         <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/page/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/page/js/main.js"></script>
+        
         
     </head>
     <body>
@@ -34,7 +34,7 @@
         <jsp:include page="footer.jsp"></jsp:include>
 
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
-        
+        <script src="${pageContext.request.contextPath}/page/js/main.js"></script>
         <script>  
             var content = document.getElementById('thongBao').innerHTML;
             if(content != "Chúc bạn một ngày tốt lành!" && content != "") {

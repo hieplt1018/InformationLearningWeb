@@ -73,9 +73,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/page/js/bootstrap.min.js\"></script>\r\n");
-      out.write("        <script src=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/page/js/main.js\"></script>\r\n");
+      out.write("        \r\n");
       out.write("        \r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
@@ -90,7 +88,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("        <script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script> \r\n");
-      out.write("        \r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/page/js/main.js\"></script>\r\n");
       out.write("        <script>  \r\n");
       out.write("            var content = document.getElementById('thongBao').innerHTML;\r\n");
       out.write("            if(content != \"Chúc bạn một ngày tốt lành!\" && content != \"\") {\r\n");

@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
                 //Báo lịch thi    
                 thongBaoLichThi = lichThiDao.thongBaoLichThi(username);
                 session.setAttribute("thongBao", thongBaoLichThi);
-                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!")) {
+                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!") && !email.equals("")) {
                     SendMail sm = new SendMail();
                     sm.sendMail(email, "Test's Today", thongBaoLichThi);
                 }
@@ -89,9 +89,13 @@ public class LoginServlet extends HttpServlet {
                     thongBaoLichHoc += "<p>" +j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
                     j ++;
                 } 
-                SendMail sm = new SendMail();
-                sm.sendMail(email, "Class's Today", thongBaoLichHoc);
-                
+                System.out.println("Lấy xong lịch");
+                if(!thongBaoLichHoc.equalsIgnoreCase("") && !email.equalsIgnoreCase("")){
+                    System.out.println("Có lịch học!");
+                    SendMail sm = new SendMail();
+                    sm.sendMail(email, "Class's Today", thongBaoLichHoc);
+                    System.out.println("Đã gửi mail!");
+                }
             }
             // Trường hợp web trường đang trong thời gian đăng ký tín chỉ (Có capcha) 
             else if(studentDAO.checkLoginDuPhong(username,password) == true){
@@ -101,7 +105,7 @@ public class LoginServlet extends HttpServlet {
                 String email = student.getEmail();
                 thongBaoLichThi = lichThiDao.thongBaoLichThi(username);
                 session.setAttribute("thongBao", thongBaoLichThi);
-                if (!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!")) {
+                if(!thongBaoLichThi.equalsIgnoreCase("Chúc bạn một ngày tốt lành!") && !email.equals("")) {
                     SendMail sm = new SendMail();
                     sm.sendMail(email, "Test's Today", thongBaoLichThi);
                 }
@@ -114,8 +118,10 @@ public class LoginServlet extends HttpServlet {
                     thongBaoLichHoc += "<p>" + j + ". " + tt.getTenMH() + " - " + tt.getGiangVien() + " - Tiết bắt đầu: " + tt.getTietBD() + " - phòng: " + tt.getPhong() + " - " + tt.getNha() + "</p>";
                     j++;
                 }
-                SendMail sm = new SendMail();
-                sm.sendMail(email, "Class's Today", thongBaoLichHoc);
+                if(!thongBaoLichHoc.equalsIgnoreCase("") && !email.equalsIgnoreCase("")){
+                    SendMail sm = new SendMail();
+                    sm.sendMail(email, "Class's Today", thongBaoLichHoc);
+                }
             }
             else{
                 System.out.println("false");

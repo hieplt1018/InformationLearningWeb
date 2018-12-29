@@ -38,7 +38,6 @@ public class TimeTableDAO {
         String sqlDangKyMonHoc = "SELECT * FROM tbldangkymonhoc as a, tbltkb as b "
                 + "WHERE MaSV = '" + studentID + "' " +
                 "AND a.MaHK = '" + 20172 + "' AND a.MaNhom = b.MaNhom AND a.MaMH = b.MaMH Order by b.TietBD asc";
-        System.out.println(sqlDangKyMonHoc);
         rs = connectdb.getStatement().executeQuery(sqlDangKyMonHoc);;
         TimeTable timeTable = null;
         while(rs.next()){
@@ -77,7 +76,7 @@ public class TimeTableDAO {
 //        int tuanHT = dateCtr.getSttThisWeek();
 //        int toDay = dateCtr.chuyenDoiThuTrongTuan();
         int toDay = 2; 
-        System.out.println(toDay);
+        
             for (TimeTable tt : timeTable) {
                 String[] tuanHocStr = tt.getTuanHoc().split("");
                 String sttTuanHienTai = Integer.toString(tuanHT - tuanBD + 1);
@@ -110,7 +109,6 @@ public class TimeTableDAO {
                     
                 }
                 
-            
         }
         return timeTableTodayList;
     }
