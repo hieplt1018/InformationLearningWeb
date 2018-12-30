@@ -9,7 +9,10 @@ import connectDB.connectDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Mark;
 
 /**
@@ -18,9 +21,10 @@ import model.Mark;
  */
 public class MarkDAO {
     private Connection conn = null;
-    private PreparedStatement stmt = null;
+    private PreparedStatement ps = null;
     private ResultSet rs = null;
     private connectDB connectdb;
+    private Statement stm = null;
     
     public MarkDAO() {
         connectdb = new connectDB();
@@ -52,6 +56,47 @@ public class MarkDAO {
             System.out.println(e);
         }
         return list;
+    }
+    
+    public String getMaMH(String tenMH) {
+
+        try {
+            String sql = "select MaMH from tbllichthi where tbllichthi.TenMH = '" + tenMH + "'";
+
+            stm = connectdb.openConnect().createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                return rs.getString(1);
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(MarkDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "####";
+    }
+    
+    public boolean insert(Mark mark) {
+        try {
+            String sql = "insert into tbldiem (maHK, maSV, maMH, tenMH, soTC, diemCC, diemKT, diemBT, diemThi, diemTK, diemChu, diemTH) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            ps = connectdb.openConnect().prepareStatement(sql);
+            ps.setInt(1, mark.getSemesterID());
+            ps.setString(2, mark.getStudentID());
+            ps.setString(3, mark.getSubjectID());
+            ps.setString(4, mark.getSubjectName());
+            ps.setString(5, mark.getNumberOfTinChi());
+            ps.setString(6, mark.getDiemCC());
+            ps.setString(7, mark.getDiemKT());
+            ps.setString(8, mark.getDiemBT());
+            ps.setString(9, mark.getDiemThi());
+            ps.setString(10, mark.getDiemTK());
+            ps.setString(11, mark.getDiemChu());
+            ps.setString(12, mark.getDiemTH());
+            int isSuccess = ps.executeUpdate();
+            return isSuccess == 1;
+        } catch (Exception ex) {
+            Logger.getLogger(MarkDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
     
     public static void main(String[] args) {

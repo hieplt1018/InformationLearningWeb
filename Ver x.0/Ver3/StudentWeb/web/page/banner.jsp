@@ -43,7 +43,7 @@
                             <%} else if (jsp.equals("login.jsp")) {%>
                                 Đăng nhập 
                             <%}else if (jsp.equals("registerEmail.jsp")) {%>
-                                <li>Đăng kí Email</li>    
+                                Đăng kí Email
                             <%}%> 
                         </h1>
                     </div>

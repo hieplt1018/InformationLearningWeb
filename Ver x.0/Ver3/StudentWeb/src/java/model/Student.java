@@ -21,6 +21,23 @@ public class Student {
         this.firstName = firstName;
     }
     
+    public Student(String sId, String sClass, String lastName, String firstName, String dateOfBirth) {
+        this.sId = sId;
+        this.sClass = sClass;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Student(String sId, String lastName, String firstName, String dateOfBirth, String sex, String placeOfBirth) {
+        this.sId = sId;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
+        this.placeOfBirth = placeOfBirth;
+    }
+    
     public Student(String sId, String sClass, String lastName, String firstName, String dateOfBirth, String sex, String placeOfBirth, String password) {
         this.sId = sId;
         this.sClass = sClass;

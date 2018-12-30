@@ -33,6 +33,28 @@ public class LichThiDAO {
         
     }
    
+    public boolean insert(LichThi lt) {
+        try {
+            String sql = "insert into tbllichthi (maHK, maMH, maNhom,tenMH,ngayThi,tietBD,gioBD,toThi,siSo,phongThi,giangVien,ghiChu) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            ps = con.openConnect().prepareStatement(sql);
+            ps.setInt(1, lt.getMaHK());
+            ps.setString(2, lt.getMaMH());
+            ps.setString(3, lt.getMaNhom());
+            ps.setString(4, lt.getTenMH());
+            ps.setString(5, lt.getNgayThi());
+            ps.setString(6, lt.getTietBD());
+            ps.setString(7, lt.getGioBD());
+            ps.setString(8, lt.getToThi());
+            ps.setString(9, lt.getSiSo());
+            ps.setString(10, lt.getPhongThi());
+            ps.setString(11, lt.getGiangVien());
+            ps.setString(12, lt.getGhiChu());
+            return ps.executeUpdate() == 1;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+    
     public ArrayList<LichThi> getLichThi(String masv){
         ArrayList<LichThi> lichThiList = new ArrayList<>();
         ArrayList<LichThi> lichThiList2 = new ArrayList<>();

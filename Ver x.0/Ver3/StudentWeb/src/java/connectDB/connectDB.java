@@ -69,4 +69,15 @@ public class connectDB {
             connect.close();
         }
     }
+    
+    public void setMaxConnection(int n) {
+        try {
+            String sql = "set global max_connections = " + n;
+            stmt = getStatement();
+            stmt.executeQuery(sql);
+
+        } catch (SQLException ex) {
+        } catch (Exception ex) {
+        }
+    }
 }

@@ -1,6 +1,13 @@
 
+<%@page import="model.Admin"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    Admin admin = null;
+    if(session.getAttribute("admin") != null) {
+        admin = (Admin) session.getAttribute("admin");
+    }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,10 +17,11 @@
 
         <div id="header">
             <div class="inHeader">
+                <% if(admin != null) { %>
                 <div class="mosAdmin">
-                    Hallo, Mas Administrator<br>
-                    <a href="">Lihat website</a> | <a href="">Help</a> | <a href="login.html">Keluar</a>
+                    Welcome <%=admin.getHo()%> <%=admin.getTen()%>
                 </div>
+                <% } %>
                 <div class="clear"></div>
             </div>
         </div> 

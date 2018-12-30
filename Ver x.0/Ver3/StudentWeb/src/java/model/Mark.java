@@ -5,11 +5,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author admin
  */
-public class Mark {
+public class Mark{
     private int semesterID;
     private String studentID, subjectID, subjectName, numberOfTinChi, diemCC, diemKT, diemBT, diemTH, diemThi, diemTK, diemChu;
 

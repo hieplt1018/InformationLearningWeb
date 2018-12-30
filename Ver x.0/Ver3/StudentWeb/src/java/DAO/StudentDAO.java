@@ -20,7 +20,7 @@ import model.Student;
  */
 public class StudentDAO {
     private Connection conn = null;
-    private PreparedStatement stmt = null;
+    private PreparedStatement ps = null;
     private ResultSet rs = null;
     private connectDB connectdb;
 
@@ -78,6 +78,43 @@ public class StudentDAO {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    public boolean insert(Student sv) {
+        try {
+            String sql = "insert into tblsinhvien (Lop, MaSV, Ho, Ten, NgaySinh) values(?,?,?,?,?)";
+            ps = connectdb.openConnect().prepareStatement(sql);
+            ps.setString(1, sv.getsClass());
+            ps.setString(2, sv.getsId());
+            ps.setString(3, sv.getLastName());
+            ps.setString(4, sv.getFirstName());
+            ps.setString(5, sv.getDateOfBirth());
+            return ps.executeUpdate() == 1;
+        } catch (Exception ex) {
+            System.out.println("eror" + ex.getMessage());
+            return false;
+        }
+    }
+
+    public boolean update(Student sv) {
+        try {
+            String sql = "update tblsinhvien a "
+                    + "set a.Ho = ? ,  a.Ten= ? , a.NgaySinh = ? , a.GioiTinh = ? , a.NoiSinh = ? "
+                    + "where a.maSV = ?";
+            ps = connectdb.openConnect().prepareStatement(sql);
+
+            ps.setString(1, sv.getLastName());
+            ps.setString(2, sv.getFirstName());
+            ps.setString(3, sv.getDateOfBirth());
+            ps.setString(4, sv.getSex());
+            ps.setString(5, sv.getPlaceOfBirth());
+            ps.setString(6, sv.getsId());
+            System.out.println(ps.executeUpdate());
+            return ps.executeUpdate() >= 1;
+        } catch (Exception ex) {
+            System.out.println("eror" + ex.getMessage());
+            return false;
+        }
     }
     
     public static void main(String[] args) throws Exception {

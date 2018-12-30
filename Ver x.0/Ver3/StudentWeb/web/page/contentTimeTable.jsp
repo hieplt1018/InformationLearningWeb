@@ -4,10 +4,6 @@
     Author     : Nam Anh
 --%>
 
-<%@page import="model.Student"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="DAO.TimeTableDAO"%>
-<%@page import="model.TimeTable"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- section -->

@@ -12,7 +12,7 @@
 
         <%
             NewsUpdateControl newsCtr = new NewsUpdateControl();
-            newsCtr.start(); //Chuyển nó sang admin.jsp để không khởi tạo quá nhiều luồng
+             //Chuyển nó sang admin.jsp để không khởi tạo quá nhiều luồng
             
             ArrayList<News> newsListPost = newsCtr.getNewsPost();
             ArrayList<News> newsGiaoVuList = newsCtr.getNewsGiaoVu();
@@ -35,7 +35,12 @@
                 <!-- row -->
                     <!-- post -->
                     <div class="row">
-                        <marquee id="thongBao"><%=thongBao%></marquee>     
+                        <% if(!thongBao.equalsIgnoreCase("Chúc bạn một ngày tốt lành!")) {
+                        %>
+                            <marquee id="thongBao"><%=thongBao%></marquee>  
+                        <%} else {%>
+                            <marquee id="thongBao"></marquee>  
+                        <%}%>    
                         <marquee id="hot"><span style=\"color:red; text-transform: uppercase\">HOT!!! </span> <a href=\"registerEmail.jsp\"> Click để đăng ký nhận thông báo lịch học, lịch thi, tin tức qua email tại đây!!!!</a></marquee>      
                     <div class="col-md-6">
                         <div class="post">

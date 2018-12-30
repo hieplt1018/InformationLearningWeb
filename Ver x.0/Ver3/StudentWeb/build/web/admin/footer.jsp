@@ -9,8 +9,7 @@
     <body>
 
         <div id="footer">
-            © Copyright 2016 KenhLapTrinh.net, All rights reserved |  
-            Design by<a href="http://kenhlaptrinh.net/" rel="nofollow" target="_blank">KenhLapTrinh.net</a><br>
+            
         </div>
 
     </body>

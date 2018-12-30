@@ -37,15 +37,6 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cookie cUserName = new Cookie("cookuser", null);
-        Cookie cPassword = new Cookie("cookpass", null);
-        Cookie cRemember = new Cookie("cookrem", null);
-        cUserName.setMaxAge(0);
-        cPassword.setMaxAge(0);
-        cRemember.setMaxAge(0);
-        response.addCookie(cUserName);
-        response.addCookie(cPassword);
-        response.addCookie(cRemember);
         HttpSession httpSession = request.getSession();
         httpSession.invalidate();
         RequestDispatcher requestDispatcher = 

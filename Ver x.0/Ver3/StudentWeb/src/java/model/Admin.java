@@ -15,6 +15,23 @@ public class Admin {
     public Admin() {
     }
 
+    public Admin(String username, String password, String maNV, String ho, String ten, String image) {
+        this.username = username;
+        this.password = password;
+        this.maNV = maNV;
+        this.ho = ho;
+        this.ten = ten;
+        this.image = image;
+    }
+
+    public Admin(String username, String password, String maNV, String ho, String ten) {
+        this.username = username;
+        this.password = password;
+        this.maNV = maNV;
+        this.ho = ho;
+        this.ten = ten;
+    }
+    
     public String getUsername() {
         return username;
     }

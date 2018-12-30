@@ -42,7 +42,7 @@ public class NewsUpdateControl extends Thread{
                 newsGiaoVu = newsCtr.getNewsGiaoVu();
                 newsTTKT = newsCtr.getNewsTTKT();
                 System.out.println("Chạy lần " + i + "!");
-                Thread.sleep(1800000);
+                Thread.sleep(10*1000);
             }
         } catch (IOException ex) {
             Logger.getLogger(NewsUpdateControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,13 +116,14 @@ public class NewsUpdateControl extends Thread{
     
     public static void main(String[] args) throws IOException {
         NewsUpdateControl newsCtr = new NewsUpdateControl();
-        ArrayList<News> newsList = newsCtr.getNewsGiaoVu();
-        for(News news: newsList) {
-            System.out.println("Title: " + news.getTitle());
-            System.out.println("Url: " + news.getUrl());
-            System.out.println("Image" + news.getImage());
-        }
-        
-        System.out.println(newsList.get(0).getTitle());
+//        ArrayList<News> newsList = newsCtr.getNewsGiaoVu();
+//        for(News news: newsList) {
+//            System.out.println("Title: " + news.getTitle());
+//            System.out.println("Url: " + news.getUrl());
+//            System.out.println("Image" + news.getImage());
+//        }
+//        
+//        System.out.println(newsList.get(0).getTitle());
+        newsCtr.start();
     }
 }
