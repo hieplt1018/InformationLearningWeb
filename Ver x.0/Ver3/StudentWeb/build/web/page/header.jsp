@@ -79,7 +79,7 @@
                                 <li><a href="${pageContext.request.contextPath}/page/mark.jsp">Điểm</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/lichthi.jsp">Lịch thi</a></li>
                                 <li><a href="${pageContext.request.contextPath}/page/studentInfo.jsp">Thông tin cá nhân</a></li>
-                                <li><a href="${pageContext.request.contextPath}/page/logout.jsp">Đăng xuất</a></li>
+                                <li><a href="${pageContext.request.contextPath}/LogoutServlet">Đăng xuất</a></li>
                                 <!-- Đăng ký nhận tin -->
                         </ul>
                     </div>

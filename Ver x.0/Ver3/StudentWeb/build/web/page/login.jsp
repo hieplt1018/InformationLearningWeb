@@ -33,6 +33,22 @@
         <jsp:include page="banner.jsp"></jsp:include>
         <%
             Object error = request.getAttribute("errorMessage");
+            Cookie[] cookies = request.getCookies();
+                String username = "", password = "", rememberVal = "";
+                if (cookies != null) {
+                    for (Cookie cookie : cookies) {
+                        if (cookie.getName().equals("cookuser")) {
+                            System.out.println("cookuser: " + cookie.getValue());
+                            username = cookie.getValue();
+                        }
+                        if (cookie.getName().equals("cookpass")) {
+                            password = cookie.getValue();
+                        }
+                        if (cookie.getName().equals("cookrem")) {
+                            rememberVal = cookie.getValue();
+                        }
+                    }
+                }
         %>
         <div class="section">
             <div class="container">
@@ -41,15 +57,15 @@
                         <form action="${pageContext.request.contextPath}/LoginServlet"  method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên đăng nhập</label>
-                                <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Mã Sinh Viên" value="" required autofocus>
+                                <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Mã Sinh Viên" value="<%=username%>" required autofocus>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your account with anyone else.</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mật khẩu</label>
-                                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật khẩu" value="" required>
+                                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật khẩu" value="<%=password%>" required>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input name="remember" type="checkbox" class="form-check-input" id="exampleCheck1" value="1" <%= "1".equals(rememberVal.trim()) ? "checked='checked'" : ""%> >
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
                             </div>
                             <%

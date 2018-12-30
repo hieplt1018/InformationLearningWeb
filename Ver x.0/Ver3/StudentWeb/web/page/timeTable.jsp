@@ -23,14 +23,19 @@
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/style.css"/>
 
+        <!-- Custom CSS -->
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/page/css/timeTable.css"/>
+        
         <!-- Custom Js -->
         <script src="${pageContext.request.contextPath}/page/js/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/page/js/bootstrap.min.js"></script>
-        
+        <script>var contextPath = "${pageContext.request.contextPath}";</script>
+        <script src="${pageContext.request.contextPath}/page/js/timeTable.js"></script>
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
         <jsp:include page="banner.jsp"></jsp:include>
+        <jsp:include page="contentTimeTable.jsp"></jsp:include>
         <jsp:include page="footer.jsp"></jsp:include>
         
         <script src="${pageContext.request.contextPath}/page/js/main.js"></script>

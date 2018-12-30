@@ -1,0 +1,52 @@
+/* 
+    Created on : Dec 28, 2018, 8:52:30 PM
+    Author     : Nam Anh
+*/
+table {
+  font-family: "FontAwesome", Helvetica, sans-serif;
+}
+
+#div-menu-tkb, #div-menu-tuan {
+    float: left;
+    width: 30%;
+    margin-right: 15px;
+}
+
+.table {
+    margin-bottom: 0px;
+    table-layout: auto;
+}
+
+.ds-tuan {
+    font-family: monospace;
+    white-space: nowrap;
+}
+
+.number {
+    text-align: center;
+    white-space: nowrap;
+}
+
+thead {
+  background: SteelBlue;
+  color: white;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    word-wrap: break-word;
+}
+
+.subject-detail {
+    display: none;
+    position: absolute;
+    background-color: #eee;
+    z-index: 10;
+}
+
+td:hover .subject-detail {
+    display: block;
+}

@@ -18,6 +18,7 @@ import java.net.CookieManager;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -70,6 +71,21 @@ public class LoginServlet extends HttpServlet {
                 String email = student.getEmail();
                 url = "./page/index.jsp";
                 session.setAttribute("student", student);
+                
+                // Kiểm tra Remember Me. Nếu có lưu cookie
+                if (request.getParameter("remember") != null) {
+                    String remember = request.getParameter("remember").trim();
+                    System.out.println("remember : " + remember);
+                    Cookie cUserName = new Cookie("cookuser", username);
+                    Cookie cPassword = new Cookie("cookpass", password);
+                    Cookie cRemember = new Cookie("cookrem", remember);
+                    cUserName.setMaxAge(60 * 60 * 24 * 15);     //15 days
+                    cPassword.setMaxAge(60 * 60 * 24 * 15);
+                    cRemember.setMaxAge(60 * 60 * 24 * 15);
+                    response.addCookie(cUserName);
+                    response.addCookie(cPassword);
+                    response.addCookie(cRemember);
+                }
                 //Báo lịch thi    
                 thongBaoLichThi = lichThiDao.thongBaoLichThi(username);
                 session.setAttribute("thongBao", thongBaoLichThi);

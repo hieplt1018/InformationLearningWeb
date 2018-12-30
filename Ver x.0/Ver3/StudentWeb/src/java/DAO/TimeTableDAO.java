@@ -33,14 +33,11 @@ public class TimeTableDAO {
         connectdb = new connectDB();
     }    
     
-    public ArrayList<TimeTable> getTimeTable(String studentID) throws SQLException, Exception {
+    public ArrayList<TimeTable> processTimeTable(String studentID, String sql) throws SQLException, Exception {
         ArrayList<TimeTable> timeTableList = new ArrayList<>();
-        String sqlDangKyMonHoc = "SELECT * FROM tbldangkymonhoc as a, tbltkb as b "
-                + "WHERE MaSV = '" + studentID + "' " +
-                "AND a.MaHK = '" + 20172 + "' AND a.MaNhom = b.MaNhom AND a.MaMH = b.MaMH Order by b.TietBD asc";
-        rs = connectdb.getStatement().executeQuery(sqlDangKyMonHoc);;
+        rs = connectdb.getStatement().executeQuery(sql);;
         TimeTable timeTable = null;
-        while(rs.next()){
+        while (rs.next()) {
             String tenMH = rs.getString("tenMH");
             int soTC = rs.getInt("soTC");
             int maHK = rs.getInt("maHK");
@@ -56,13 +53,27 @@ public class TimeTableDAO {
             String nha = rs.getString("nha");
             String tuanHoc = rs.getString("tuanHoc");
             String giangVien = rs.getString("giangVien");
-            timeTable = new TimeTable(maHK, soTC, studentID, maMH, maNhom, tenMH, 
-                    toHop, toTH, thu, tietBD, soTiet, kip, phong, nha, tuanHoc, 
+            timeTable = new TimeTable(maHK, soTC, studentID, maMH, maNhom, tenMH,
+                    toHop, toTH, thu, tietBD, soTiet, kip, phong, nha, tuanHoc,
                     giangVien);
             timeTableList.add(timeTable);
         }
         return timeTableList;
-    }    
+    }
+
+    public ArrayList<TimeTable> getTimeTable(String studentID) throws SQLException, Exception {
+        String sql = "SELECT * FROM tbldangkymonhoc as a, tbltkb as b "
+                + "WHERE MaSV = '" + studentID + "' "
+                + "AND a.MaHK = '" + 20172 + "' AND a.MaNhom = b.MaNhom AND a.MaMH = b.MaMH Order by b.TietBD asc";
+        return processTimeTable(studentID, sql);
+    }
+
+    public ArrayList<TimeTable> getPersonalTimeTable(String studentID) throws SQLException, Exception {
+        String sql = "SELECT * FROM tbldangkymonhoc as a, tbltkb as b "
+                + "WHERE MaSV = '" + studentID + "' "
+                + "AND a.MaHK = '" + 20172 + "' AND a.MaNhom = b.MaNhom AND a.MaMH = b.MaMH Order by b.TenMH asc";
+        return processTimeTable(studentID, sql);
+    }
     
     public ArrayList<TimeTable> getTimeTableInToday(ArrayList<TimeTable> timeTable, int maHK) throws Exception {
         DateControl dateCtr = new DateControl();
